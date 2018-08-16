@@ -117,6 +117,11 @@ namespace WFChamilo6.Frms
                     txtTiempoLec.Text = ConvierteSegHora(CalculaTiempo()).ToString();
                 }
             }
+            else
+            {
+                c_lp_item_viewTableAdapter.Dispose();
+                c_lp_item_viewTableAdapter.Fill(this.chamiloDataSet.c_lp_item_view);
+            }
         }
 
         private Decimal CalculaPorcentaje()
@@ -273,10 +278,17 @@ namespace WFChamilo6.Frms
             this.c_lp_itemTableAdapter1.FillBy(this.chamiloDataSet.c_lp_item, leccionActual, cursoActual);
 
             listBox1.Items.Clear();
-            foreach(DataRow row in this.chamiloDataSet.c_lp)
+
+            foreach (DataRow row in this.chamiloDataSet.c_lp)
             {
                 listBox1.Items.Add(row[0].ToString());
             }
+
+            DataRow miRow = chamiloDataSet.c_lp.Rows[0];
+
+            int lastItem = Convert.ToInt32(this.c_lp_itemTableAdapter1.ScalarQueryMaxItem(Convert.ToInt32( miRow[0]), cursoActual));
+
+            Carga_C_LP_View(Convert.ToInt32(txtIdUsuario.Text), cursoActual, Convert.ToInt32(miRow[0]), lastItem);
 
             MessageBox.Show(this.chamiloDataSet.c_lp.Count().ToString() + " " + this.chamiloDataSet.c_lp_item.Count().ToString());
 
@@ -285,12 +297,14 @@ namespace WFChamilo6.Frms
         private void Carga_C_LP_View(int usuario, int curso, int leccion, int last_item)
         {
             //Carga un Registro en c_lp_view para que parezca que el usuario a entrado en la lección
-
+            int MaxId = Convert.ToInt32(this.c_lp_viewTableAdapter1.ScalarQueryID());
+            this.c_lp_viewTableAdapter1.InsertQuery(curso, (MaxId+1), leccion, usuario, 1, last_item, 100, 0);
         }
 
         private void Carga_C_LP_Item_View(int curso, int id_lp_item,  int id_lp_view, double startime, int totaltime)
         {
             //Carga los items vistos en c_lp_item_view con los tiempos correspondientes asignados en Startime
+            
 
         }
 

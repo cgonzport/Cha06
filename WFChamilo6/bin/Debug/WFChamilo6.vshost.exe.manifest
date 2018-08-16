@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFChamilo6.exe" size="496128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WFChamilo6.exe" size="497152">
       <assemblyIdentity name="WFChamilo6" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dIiTs0ZezaL26l06hCGJpbQjL4STjC0fggyxp2i0snM=</dsig:DigestValue>
+        <dsig:DigestValue>BZx0pfPjyRavcReO7EFz16TrPQD904rS0ZgFpPZVdsw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

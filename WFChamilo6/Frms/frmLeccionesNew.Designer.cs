@@ -30,6 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.leccionesCursoUsrDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leccionesCursoUsrBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chamiloDataSet = new WFChamilo6.chamiloDataSet();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -82,15 +90,8 @@
             this.c_lpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.c_lpTableAdapter = new WFChamilo6.chamiloDataSetTableAdapters.c_lpTableAdapter();
             this.c_lp_itemTableAdapter1 = new WFChamilo6.chamiloDataSetTableAdapters.c_lp_itemTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.c_lp_viewTableAdapter1 = new WFChamilo6.chamiloDataSetTableAdapters.c_lp_viewTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).BeginInit();
@@ -127,6 +128,70 @@
             this.leccionesCursoUsrDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.leccionesCursoUsrDataGridView.Size = new System.Drawing.Size(733, 302);
             this.leccionesCursoUsrDataGridView.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "iid";
+            this.dataGridViewTextBoxColumn1.HeaderText = "iid";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "c_id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "c_id";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            this.dataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "title";
+            this.dataGridViewTextBoxColumn3.HeaderText = "title";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 210;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "user_id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "user_id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            this.dataGridViewTextBoxColumn5.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "username";
+            this.dataGridViewTextBoxColumn6.HeaderText = "username";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn4.HeaderText = "name";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 210;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "progress";
+            this.dataGridViewTextBoxColumn7.HeaderText = "progress";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // lp_id
+            // 
+            this.lp_id.DataPropertyName = "lp_id";
+            this.lp_id.HeaderText = "lp_id";
+            this.lp_id.Name = "lp_id";
+            this.lp_id.ReadOnly = true;
+            this.lp_id.Visible = false;
             // 
             // leccionesCursoUsrBindingSource
             // 
@@ -593,70 +658,6 @@
             // 
             this.c_lp_itemTableAdapter1.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "iid";
-            this.dataGridViewTextBoxColumn1.HeaderText = "iid";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "c_id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "c_id";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "title";
-            this.dataGridViewTextBoxColumn3.HeaderText = "title";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 210;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "user_id";
-            this.dataGridViewTextBoxColumn5.HeaderText = "user_id";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
-            this.dataGridViewTextBoxColumn5.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "username";
-            this.dataGridViewTextBoxColumn6.HeaderText = "username";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn4.HeaderText = "name";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 210;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "progress";
-            this.dataGridViewTextBoxColumn7.HeaderText = "progress";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // lp_id
-            // 
-            this.lp_id.DataPropertyName = "lp_id";
-            this.lp_id.HeaderText = "lp_id";
-            this.lp_id.Name = "lp_id";
-            this.lp_id.ReadOnly = true;
-            this.lp_id.Visible = false;
-            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -664,6 +665,10 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 134);
             this.listBox1.TabIndex = 45;
+            // 
+            // c_lp_viewTableAdapter1
+            // 
+            this.c_lp_viewTableAdapter1.ClearBeforeFill = true;
             // 
             // frmLeccionesNew
             // 
@@ -773,5 +778,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn lp_id;
         private System.Windows.Forms.ListBox listBox1;
+        private chamiloDataSetTableAdapters.c_lp_viewTableAdapter c_lp_viewTableAdapter1;
     }
 }
