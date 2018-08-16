@@ -1,0 +1,12 @@
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\bin\Debug\WFChamilo5.exe.config
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\bin\Debug\WFChamilo5.exe
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\bin\Debug\WFChamilo5.pdb
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\obj\Debug\WFChamilo5.frmMdi.resources
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\obj\Debug\WFChamilo5.Frms.frmUsuarios.resources
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\obj\Debug\WFChamilo5.Properties.Resources.resources
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\obj\Debug\WFChamilo5.csproj.GenerateResource.Cache
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\obj\Debug\WFChamilo5.exe
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\obj\Debug\WFChamilo5.pdb
+c:\users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\bin\Debug\MySql.Data.dll
+C:\Users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\obj\Debug\WFChamilo5.Frms.frmGeneral.resources
+C:\Users\cgonz\documents\visual studio 2015\Projects\WFChamilo5\WFChamilo5\obj\Debug\WFChamilo5.Frms.frmLecciones.resources
