@@ -109,18 +109,32 @@ namespace WFChamilo6.Frms
 
         private void txtIdLeccion_TextChanged(object sender, EventArgs e)
         {
-            if (leccionesCursoUsrDataGridView.SelectedCells.Count != 0)
+            if (leccionesCursoUsrDataGridView.Rows.Count != 0)
             {
-                if (leccionesCursoUsrDataGridView.SelectedCells[0].Value != null)
+                c_lp_item_viewDataGridView.DataSource = chamiloDataSet;
+                c_lp_item_viewDataGridView.Refresh();
+                if (leccionesCursoUsrDataGridView.SelectedCells.Count != 0)
                 {
-                    c_lp_item_viewBindingSource.Filter = "lp_view_id = " + leccionesCursoUsrDataGridView.SelectedCells[0].Value.ToString();
-                    txtTiempoLec.Text = ConvierteSegHora(CalculaTiempo()).ToString();
+                    if (leccionesCursoUsrDataGridView.SelectedCells[0].Value != null)
+                    {
+                        c_lp_item_viewBindingSource.Filter = "lp_view_id = " + leccionesCursoUsrDataGridView.SelectedCells[0].Value.ToString();
+                        txtTiempoLec.Text = ConvierteSegHora(CalculaTiempo()).ToString();
+                    }
+                }
+                else
+                {
+                    int mio = leccionesCursoUsrDataGridView.Rows.Count;
+                    MessageBox.Show(mio.ToString());
+                    c_lp_item_viewDataGridView.DataSource = null;
+                    c_lp_item_viewDataGridView.Refresh();
+                    //c_lp_item_viewTableAdapter.Dispose();
+                    //c_lp_item_viewTableAdapter.Fill(this.chamiloDataSet.c_lp_item_view);
                 }
             }
             else
             {
-                c_lp_item_viewTableAdapter.Dispose();
-                c_lp_item_viewTableAdapter.Fill(this.chamiloDataSet.c_lp_item_view);
+                c_lp_item_viewDataGridView.DataSource = null;
+                c_lp_item_viewDataGridView.Refresh();
             }
         }
 
@@ -274,7 +288,7 @@ namespace WFChamilo6.Frms
             int cursoActual = Convert.ToInt32(leccionesCursoUsrDataGridView.SelectedCells[1].Value);
             int leccionActual = Convert.ToInt32(leccionesCursoUsrDataGridView.SelectedCells[7].Value);
             //this.c_lpTableAdapter.FillBy(this.chamiloDataSet.c_lp, frmMdi.gblCurso);
-            this.c_lpTableAdapter.FillByNotIn(this.chamiloDataSet.c_lp,Convert.ToInt32(txtIdUsuario.Text),frmMdi.gblCurso);
+            this.c_lpTableAdapter.FillByNotIn(this.chamiloDataSet.c_lp, Convert.ToInt32(txtIdUsuario.Text), frmMdi.gblCurso);
             this.c_lp_itemTableAdapter1.FillBy(this.chamiloDataSet.c_lp_item, leccionActual, cursoActual);
 
             listBox1.Items.Clear();
@@ -286,7 +300,7 @@ namespace WFChamilo6.Frms
 
             DataRow miRow = chamiloDataSet.c_lp.Rows[0];
 
-            int lastItem = Convert.ToInt32(this.c_lp_itemTableAdapter1.ScalarQueryMaxItem(Convert.ToInt32( miRow[0]), cursoActual));
+            int lastItem = Convert.ToInt32(this.c_lp_itemTableAdapter1.ScalarQueryMaxItem(Convert.ToInt32(miRow[0]), cursoActual));
 
             Carga_C_LP_View(Convert.ToInt32(txtIdUsuario.Text), cursoActual, Convert.ToInt32(miRow[0]), lastItem);
 
@@ -298,13 +312,13 @@ namespace WFChamilo6.Frms
         {
             //Carga un Registro en c_lp_view para que parezca que el usuario a entrado en la lección
             int MaxId = Convert.ToInt32(this.c_lp_viewTableAdapter1.ScalarQueryID());
-            this.c_lp_viewTableAdapter1.InsertQuery(curso, (MaxId+1), leccion, usuario, 1, last_item, 100, 0);
+            this.c_lp_viewTableAdapter1.InsertQuery(curso, (MaxId + 1), leccion, usuario, 1, last_item, 100, 0);
         }
 
-        private void Carga_C_LP_Item_View(int curso, int id_lp_item,  int id_lp_view, double startime, int totaltime)
+        private void Carga_C_LP_Item_View(int curso, int id_lp_item, int id_lp_view, double startime, int totaltime)
         {
             //Carga los items vistos en c_lp_item_view con los tiempos correspondientes asignados en Startime
-            
+
 
         }
 
