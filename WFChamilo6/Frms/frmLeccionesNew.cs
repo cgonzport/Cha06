@@ -111,30 +111,18 @@ namespace WFChamilo6.Frms
         {
             if (leccionesCursoUsrDataGridView.Rows.Count != 0)
             {
-                c_lp_item_viewDataGridView.DataSource = chamiloDataSet;
-                c_lp_item_viewDataGridView.Refresh();
-                if (leccionesCursoUsrDataGridView.SelectedCells.Count != 0)
-                {
+                //if (leccionesCursoUsrDataGridView.SelectedCells.Count != 0)
+                //{
                     if (leccionesCursoUsrDataGridView.SelectedCells[0].Value != null)
                     {
                         c_lp_item_viewBindingSource.Filter = "lp_view_id = " + leccionesCursoUsrDataGridView.SelectedCells[0].Value.ToString();
                         txtTiempoLec.Text = ConvierteSegHora(CalculaTiempo()).ToString();
                     }
-                }
-                else
-                {
-                    int mio = leccionesCursoUsrDataGridView.Rows.Count;
-                    MessageBox.Show(mio.ToString());
-                    c_lp_item_viewDataGridView.DataSource = null;
-                    c_lp_item_viewDataGridView.Refresh();
-                    //c_lp_item_viewTableAdapter.Dispose();
-                    //c_lp_item_viewTableAdapter.Fill(this.chamiloDataSet.c_lp_item_view);
-                }
+                //}
             }
             else
             {
-                c_lp_item_viewDataGridView.DataSource = null;
-                c_lp_item_viewDataGridView.Refresh();
+                c_lp_item_viewBindingSource.Filter = "id = 0";
             }
         }
 
