@@ -216,7 +216,9 @@ namespace WFChamilo6.Frms
                 {
                 }
             }
-            leccionesCursoUsrTableAdapter.UpdateQueryPorcentaje(Convert.ToInt32(txtIdLeccion.Text), Convert.ToInt32(CalculaPorcentaje()));
+
+            leccionesCursoUsrTableAdapter.UpdateQueryPorcentaje(Convert.ToInt32(CalculaPorcentaje()), Convert.ToInt32(txtIdLeccion.Text));
+
             leccionesCursoUsrTableAdapter.Fill(this.chamiloDataSet.LeccionesCursoUsr);
 
             leccionesCursoUsrDataGridView.CurrentCell = leccionesCursoUsrDataGridView[0, CeldaActual];
@@ -257,6 +259,7 @@ namespace WFChamilo6.Frms
 
                 foreach (DataGridViewRow row in leccionesCursoUsrDataGridView.Rows)
                 {
+                    //this.c_lp_viewTableAdapter1.UpdateQueryPorcentaje(100,26);
                     GuardaAutomatico();
                     SiguienteModulo();
                     this.Refresh();
@@ -273,41 +276,18 @@ namespace WFChamilo6.Frms
 
         private void BtnCreaLeccion_Click(object sender, EventArgs e)
         {
-            creaLeccion();
-            ////int cursoActual = Convert.ToInt32(leccionesCursoUsrDataGridView.SelectedCells[1].Value);
-            //int cursoActual = frmMdi.gblCurso;
-            //int leccionActual = Convert.ToInt32(leccionesCursoUsrDataGridView.SelectedCells[7].Value);
-            ////this.c_lpTableAdapter.FillBy(this.chamiloDataSet.c_lp, frmMdi.gblCurso);
-            //this.c_lpTableAdapter.FillByNotIn(this.chamiloDataSet.c_lp, Convert.ToInt32(txtIdUsuario.Text), cursoActual);
-            ////this.c_lp_itemTableAdapter1.FillBy(this.chamiloDataSet.c_lp_item, leccionActual, cursoActual);
-
-            //listBox1.Items.Clear();
-
-            //int lastItem = 0;
-            //foreach (DataRow row in this.chamiloDataSet.c_lp)
-            //{
-            //    lastItem = Convert.ToInt32(this.c_lp_itemTableAdapter1.ScalarQueryMaxItem(Convert.ToInt32(row[0]), cursoActual));
-            //    listBox1.Items.Add(row[0].ToString());
-            //}
-
-            //DataRow miRow = chamiloDataSet.c_lp.Rows[0];
-
-            //lastItem = Convert.ToInt32(this.c_lp_itemTableAdapter1.ScalarQueryMaxItem(Convert.ToInt32(miRow[0]), cursoActual));
-
-            //Carga_C_LP_View(Convert.ToInt32(txtIdUsuario.Text), cursoActual, Convert.ToInt32(miRow[0]), lastItem);
-
-            //MessageBox.Show(this.chamiloDataSet.c_lp.Count().ToString() + " " + this.chamiloDataSet.c_lp_item.Count().ToString());
-
+            CreaLeccion();
+            MessageBox.Show("Ésto termino muy bien!");
         }
 
-        private void creaLeccion()
+        private void CreaLeccion()
         {
             if (leccionesCursoUsrDataGridView.Rows.Count == 0)
             {
                 // tiene que crearlas TODAS (en base a c_lp crear los registros en c_lp_view
                 MessageBox.Show("Esto Está Vacio por aqui");
                 //tengo que recorrer todo c_lp y uno a uno ir creando los c_lp_view
-                this.c_lpTableAdapter.FillBy(chamiloDataSet.c_lp,frmMdi.gblCurso);
+                this.c_lpTableAdapter.FillBy(chamiloDataSet.c_lp, frmMdi.gblCurso);
 
                 foreach (DataRow row in this.chamiloDataSet.c_lp)
                 {
@@ -324,8 +304,8 @@ namespace WFChamilo6.Frms
                 foreach (DataRow row in this.chamiloDataSet.c_lp)
                 {
                     listBox1.Items.Add(row[0].ToString());
-                   
-                    if(this.c_lp_viewTableAdapter1.GetDataByCUserLec(frmMdi.gblCurso, Convert.ToInt32(txtIdUsuario.Text),Convert.ToInt32(row[0])).Rows.Count==0)
+
+                    if (this.c_lp_viewTableAdapter1.GetDataByCUserLec(frmMdi.gblCurso, Convert.ToInt32(txtIdUsuario.Text), Convert.ToInt32(row[0])).Rows.Count == 0)
                     {
                         Carga_C_LP_View(Convert.ToInt32(txtIdUsuario.Text), frmMdi.gblCurso, Convert.ToInt32(row[0]));
                     }
@@ -334,10 +314,28 @@ namespace WFChamilo6.Frms
 
                 MessageBox.Show("Aquí Falta gente");
             }
-            else 
+            else
             {
                 // Quiere decir que ya entró en todas las lecciones y no hay que crear nada
                 MessageBox.Show("Esto está a tope");
+            }
+        }
+
+        private void CreaItems(int leccion_c_lp, int leccion_c_lp_view)
+        {
+            System.Random r = new System.Random();
+            // comprobamos que no estén creados los items para este curso
+            if (this.c_lp_item_view_origTableAdapter1.GetDataBy2(leccion_c_lp_view).Rows.Count == 0)
+            {
+                //si los items NO estan creados (que es lo logico) hacer lo siguiente:
+                //Buscar los Items en la Tabla c_lp_items para la lección en curso (leccion_c_lp)
+                this.c_lp_itemTableAdapter1.FillBy(chamiloDataSet.c_lp_item, leccion_c_lp, frmMdi.gblCurso);
+                foreach (DataRow row in this.chamiloDataSet.c_lp_item)
+                {
+                    //Recorrer la tabla c_lp_items e ir cargando c_lp_item_view con los datos correspondientes
+                    Carga_C_LP_Item_View(frmMdi.gblCurso, Convert.ToInt32(row[0]), leccion_c_lp_view, DateTimeToUnixTimestamp(DateTime.Now), (245 + r.Next(1, 180)));
+                }
+
             }
         }
 
@@ -348,11 +346,15 @@ namespace WFChamilo6.Frms
             lastItem = Convert.ToInt32(this.c_lp_itemTableAdapter1.ScalarQueryMaxItem(leccion, curso));
             int MaxId = Convert.ToInt32(this.c_lp_viewTableAdapter1.ScalarQueryID());
             this.c_lp_viewTableAdapter1.InsertQuery(curso, (MaxId + 1), leccion, usuario, 1, lastItem, 100, 0);
+            CreaItems(leccion, (MaxId + 1));
         }
 
         private void Carga_C_LP_Item_View(int curso, int id_lp_item, int id_lp_view, double startime, int totaltime)
         {
             //Carga los items vistos en c_lp_item_view con los tiempos correspondientes asignados en Startime
+            int MaxId = Convert.ToInt32(this.c_lp_item_view_origTableAdapter1.ScalarQuery());
+            //            this.c_lp_viewTableAdapter1.InsertQuery(curso, (MaxId + 1), leccion, usuario, 1, lastItem, 100, 0);
+            this.c_lp_item_view_origTableAdapter1.InsertQuery(curso, (MaxId + 1), id_lp_item, id_lp_view, 1, Convert.ToInt32(startime), totaltime, 0, "completed", "", "", "none", "100");
 
         }
 

@@ -21351,7 +21351,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[5];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM `c_lp_view`";
@@ -21447,6 +21447,25 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT max(id) FROM c_lp_view";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE `c_lp_view` \r\nSET \r\nprogress = @porcentaje  \r\nWHERE \r\niid = @id";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@porcentaje";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "progress";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "iid";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21761,6 +21780,36 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             else {
                 return new global::System.Nullable<int>(((int)(returnValue)));
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQueryPorcentaje(global::System.Nullable<int> porcentaje, int id) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[4];
+            if ((porcentaje.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(porcentaje.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[1].Value = ((int)(id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -26817,9 +26866,16 @@ order by c_lp.display_order";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT * FROM bdformat.c_lp_item_view WHERE lp_view_id = @lp_view_id";
+            this._commandCollection[1].CommandText = "select * from c_lp_item_view  where c_id =@curso and lp_view_id = @lp_view_id";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@curso";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "c_id";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@lp_view_id";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -26829,9 +26885,8 @@ order by c_lp.display_order";
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"INSERT INTO `c_lp_item_view` 
-(`c_id`, `id`, `lp_item_id`, `lp_view_id`, `view_count`, `start_time`, `total_time`, `score`, `status`, `suspend_data`, `lesson_location`, `core_exit`, `max_score`) 
-VALUES 
-(@c_id, @id, @lp_item_id, @lp_view_id, @view_count, @start_time, @total_time, @score, @status, @suspend_data, @lesson_location, @core_exit, @max_score) ";
+(`c_id`, `id`, `lp_item_id`, `lp_view_id`, `view_count`, `start_time`, `total_time`, `score`, `status`, `suspend_data`, `lesson_location`, `core_exit`, `max_score`)
+ VALUES (@c_id, @id, @lp_item_id, @lp_view_id, @view_count, @start_time, @total_time, @score, @status, @suspend_data, @lesson_location, @core_exit, @max_score)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@c_id";
@@ -26931,7 +26986,7 @@ VALUES
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT max(iid) FROM c_lp_item_view";
+            this._commandCollection[3].CommandText = "SELECT max(id) FROM c_lp_item_view";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -26963,9 +27018,10 @@ VALUES
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(chamiloDataSet.c_lp_item_view_origDataTable dataTable, int lp_view_id) {
+        public virtual int FillBy(chamiloDataSet.c_lp_item_view_origDataTable dataTable, int curso, int lp_view_id) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(lp_view_id));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(curso));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(lp_view_id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -26977,9 +27033,10 @@ VALUES
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual chamiloDataSet.c_lp_item_view_origDataTable GetDataBy2(int lp_view_id) {
+        public virtual chamiloDataSet.c_lp_item_view_origDataTable GetDataBy2(int curso, int lp_view_id) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(lp_view_id));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(curso));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(lp_view_id));
             chamiloDataSet.c_lp_item_view_origDataTable dataTable = new chamiloDataSet.c_lp_item_view_origDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -27012,286 +27069,6 @@ VALUES
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1, int p2, global::System.Nullable<int> p4, int p5, int p6, int p7, int p8, int p9, double p10, string p11, string p13, string p15, string p16, string p18) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(p2));
-            if ((p4.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(p4.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(p5));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(p6));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(p7));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(p8));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(p9));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((double)(p10));
-            if ((p11 == null)) {
-                throw new global::System.ArgumentNullException("p11");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(p11));
-            }
-            if ((p13 == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(p13));
-            }
-            if ((p15 == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(p15));
-            }
-            if ((p16 == null)) {
-                throw new global::System.ArgumentNullException("p16");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(p16));
-            }
-            if ((p18 == null)) {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(p18));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int p1, global::System.Nullable<int> p2, int p3, int p4, int p5, int p6, int p7, double p8, string p9, string p10, string p11, string p12, string p13) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
-            if ((p2.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(p2.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(p3));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(p4));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(p5));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(p6));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(p7));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((double)(p8));
-            if ((p9 == null)) {
-                throw new global::System.ArgumentNullException("p9");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(p9));
-            }
-            if ((p10 == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(p10));
-            }
-            if ((p11 == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(p11));
-            }
-            if ((p12 == null)) {
-                throw new global::System.ArgumentNullException("p12");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(p12));
-            }
-            if ((p13 == null)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(p13));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int p1, 
-                    global::System.Nullable<int> p2, 
-                    int p3, 
-                    int p4, 
-                    int p5, 
-                    int p6, 
-                    int p7, 
-                    double p8, 
-                    string p9, 
-                    string p10, 
-                    string p11, 
-                    string p12, 
-                    string p13, 
-                    int p14, 
-                    int p15, 
-                    global::System.Nullable<int> p17, 
-                    int p18, 
-                    int p19, 
-                    int p20, 
-                    int p21, 
-                    int p22, 
-                    double p23, 
-                    string p24, 
-                    string p26, 
-                    string p28, 
-                    string p29, 
-                    string p31) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
-            if ((p2.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(p2.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(p3));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(p4));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(p6));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(p7));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(p8));
-            if ((p9 == null)) {
-                throw new global::System.ArgumentNullException("p9");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(p9));
-            }
-            if ((p10 == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
-            }
-            if ((p11 == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
-            }
-            if ((p12 == null)) {
-                throw new global::System.ArgumentNullException("p12");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(p12));
-            }
-            if ((p13 == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(p13));
-            }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(p14));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(p15));
-            if ((p17.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(p17.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(p18));
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(p19));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(p20));
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(p21));
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(p22));
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((double)(p23));
-            if ((p24 == null)) {
-                throw new global::System.ArgumentNullException("p24");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(p24));
-            }
-            if ((p26 == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(p26));
-            }
-            if ((p28 == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(p28));
-            }
-            if ((p29 == null)) {
-                throw new global::System.ArgumentNullException("p29");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(p29));
-            }
-            if ((p31 == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(p31));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -27363,7 +27140,7 @@ VALUES
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> ScalarQuery() {
+        public virtual object ScalarQuery() {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -27381,10 +27158,10 @@ VALUES
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<int>();
+                return null;
             }
             else {
-                return new global::System.Nullable<int>(((int)(returnValue)));
+                return ((object)(returnValue));
             }
         }
     }
