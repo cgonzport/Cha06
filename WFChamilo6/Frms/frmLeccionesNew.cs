@@ -31,6 +31,7 @@ namespace WFChamilo6.Frms
             txtIdUsuario.Text = frmMdi.gblUsuario.ToString();
             txtFirstName.Text = frmMdi.gblFirstName.ToString();
             txtLastName.Text = frmMdi.gblLastName.ToString();
+            progressBar1.Value = 0;
 
             //track_e_course_accessBindingSource.Filter = "user_id = " + txtIdUsuario.Text.ToString() + " and c_id = " + frmMdi.gblCurso;
         }
@@ -276,23 +277,29 @@ namespace WFChamilo6.Frms
 
         private void BtnCreaLeccion_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             CreaLeccion();
-            MessageBox.Show("Ésto termino muy bien!");
+            Cursor.Current = Cursors.Default;
+            MessageBox.Show("Proceso terminó satisfactoriamente");
+            progressBar1.Value = 0;
         }
 
         private void CreaLeccion()
         {
+            progressBar1.Value = 0;
+            int porcentajeProgresBar = 0;
+
             if (leccionesCursoUsrDataGridView.Rows.Count == 0)
             {
                 // tiene que crearlas TODAS (en base a c_lp crear los registros en c_lp_view
-                MessageBox.Show("Esto Está Vacio por aqui");
+                //MessageBox.Show("Esto Está Vacio por aqui");
                 //tengo que recorrer todo c_lp y uno a uno ir creando los c_lp_view
                 this.c_lpTableAdapter.FillBy(chamiloDataSet.c_lp, frmMdi.gblCurso);
-
+                porcentajeProgresBar = 100 / c_lpTableAdapter.GetDataBy(frmMdi.gblCurso).Rows.Count;
                 foreach (DataRow row in this.chamiloDataSet.c_lp)
                 {
-                    listBox1.Items.Add(row[0].ToString());
                     Carga_C_LP_View(Convert.ToInt32(txtIdUsuario.Text), frmMdi.gblCurso, Convert.ToInt32(row[0]));
+                    progressBar1.Increment(porcentajeProgresBar);
                 }
 
             }
@@ -300,25 +307,21 @@ namespace WFChamilo6.Frms
             {
                 // Quiere decir que faltan lecciones a las que entrar (que pueden ser en orden o no)
                 this.c_lpTableAdapter.FillBy(chamiloDataSet.c_lp, frmMdi.gblCurso);
-
+                porcentajeProgresBar = 100 / c_lpTableAdapter.GetDataBy(frmMdi.gblCurso).Rows.Count;
                 foreach (DataRow row in this.chamiloDataSet.c_lp)
                 {
-                    listBox1.Items.Add(row[0].ToString());
-
+                    progressBar1.Increment(porcentajeProgresBar);
                     if (this.c_lp_viewTableAdapter1.GetDataByCUserLec(frmMdi.gblCurso, Convert.ToInt32(txtIdUsuario.Text), Convert.ToInt32(row[0])).Rows.Count == 0)
                     {
                         Carga_C_LP_View(Convert.ToInt32(txtIdUsuario.Text), frmMdi.gblCurso, Convert.ToInt32(row[0]));
                     }
                 }
-
-
-                MessageBox.Show("Aquí Falta gente");
             }
-            else
-            {
-                // Quiere decir que ya entró en todas las lecciones y no hay que crear nada
-                MessageBox.Show("Esto está a tope");
-            }
+            //else
+            //{
+            //    // Quiere decir que ya entró en todas las lecciones y no hay que crear nada
+            //    //MessageBox.Show("Esto está a tope");
+            //}
         }
 
         private void CreaItems(int leccion_c_lp, int leccion_c_lp_view)
@@ -355,7 +358,6 @@ namespace WFChamilo6.Frms
             int MaxId = Convert.ToInt32(this.c_lp_item_view_origTableAdapter1.ScalarQuery());
             //            this.c_lp_viewTableAdapter1.InsertQuery(curso, (MaxId + 1), leccion, usuario, 1, lastItem, 100, 0);
             this.c_lp_item_view_origTableAdapter1.InsertQuery(curso, (MaxId + 1), id_lp_item, id_lp_view, 1, Convert.ToInt32(startime), totaltime, 0, "completed", "", "", "none", "100");
-
         }
 
     }
