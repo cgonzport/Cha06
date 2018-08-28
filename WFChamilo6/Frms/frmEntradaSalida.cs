@@ -31,5 +31,7 @@ namespace WFChamilo6.Frms
             this.track_e_loginTableAdapter.Fill(this.chamiloDataSet.track_e_login);
             this.track_e_loginBindingSource.Filter = "login_user_id = '" + frmMdi.gblUsuario.ToString() + "'";
         }
+
+
     }
 }
