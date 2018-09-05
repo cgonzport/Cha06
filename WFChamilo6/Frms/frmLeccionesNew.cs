@@ -33,6 +33,9 @@ namespace WFChamilo6.Frms
             txtLastName.Text = frmMdi.gblLastName.ToString();
             progressBar1.Value = 0;
 
+            //Carga los Total de Tiempo en el Curso
+            txtTiempoCurso.Text = ConvierteSegHoraStr(Convert.ToInt64(this.c_lp_item_view_origTableAdapter1.QueryTotalCurso(frmMdi.gblUsuario, frmMdi.gblCurso)));
+
             //track_e_course_accessBindingSource.Filter = "user_id = " + txtIdUsuario.Text.ToString() + " and c_id = " + frmMdi.gblCurso;
         }
 
@@ -172,6 +175,28 @@ namespace WFChamilo6.Frms
 
             return Resp;
         }
+
+        private string ConvierteSegHoraStr(long segundos)
+        {
+            long num, hor, min, seg;
+            string Resp = "0:00:00";
+            //DateTime resp ;
+            num = segundos;
+            hor = (num / 3600);
+            min = ((num - hor * 3600) / 60);
+            seg = num - (hor * 3600 + min * 60);
+            try
+            {
+                Resp = String.Format("{0,2:D2}", hor) + ":" + String.Format("{0,2:D2}", min) + ":" + String.Format("{0,2:D2}", seg);
+            }
+            catch
+            {
+                Resp = "0:00:00";
+            }
+
+            return Resp;
+        }
+
 
         private int CalculaTiempo()
         {

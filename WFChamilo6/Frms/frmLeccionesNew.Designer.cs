@@ -30,16 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.leccionesCursoUsrDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lp_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leccionesCursoUsrBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chamiloDataSet = new WFChamilo6.chamiloDataSet();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtIdUsuario = new System.Windows.Forms.TextBox();
@@ -48,13 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.c_lp_item_viewDataGridView = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.c_lp_item_viewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.txtIdLeccion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -83,6 +68,26 @@
             this.txtLeccionId = new System.Windows.Forms.TextBox();
             this.txtItemIId = new System.Windows.Forms.TextBox();
             this.grpProcesando = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.BtnCreaLeccion = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtTiempoCurso = new System.Windows.Forms.TextBox();
+            this.c_lp_item_viewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.chamiloDataSet = new WFChamilo6.chamiloDataSet();
+            this.leccionesCursoUsrBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leccionesCursoUsrTableAdapter = new WFChamilo6.chamiloDataSetTableAdapters.LeccionesCursoUsrTableAdapter();
             this.tableAdapterManager = new WFChamilo6.chamiloDataSetTableAdapters.TableAdapterManager();
             this.c_lp_item_viewTableAdapter = new WFChamilo6.chamiloDataSetTableAdapters.c_lp_item_viewTableAdapter();
@@ -91,19 +96,16 @@
             this.c_lp_itemTableAdapter1 = new WFChamilo6.chamiloDataSetTableAdapters.c_lp_itemTableAdapter();
             this.c_lp_viewTableAdapter1 = new WFChamilo6.chamiloDataSetTableAdapters.c_lp_viewTableAdapter();
             this.c_lp_item_view_origTableAdapter1 = new WFChamilo6.chamiloDataSetTableAdapters.c_lp_item_view_origTableAdapter();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.BtnCreaLeccion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_lp_item_viewDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_lp_item_viewBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grpProcesando.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c_lpBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c_lp_item_viewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_lpBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // leccionesCursoUsrDataGridView
@@ -132,62 +134,6 @@
             this.leccionesCursoUsrDataGridView.Size = new System.Drawing.Size(733, 302);
             this.leccionesCursoUsrDataGridView.TabIndex = 2;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "iid";
-            this.dataGridViewTextBoxColumn1.HeaderText = "iid";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "c_id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "c_id";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            this.dataGridViewTextBoxColumn2.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "title";
-            this.dataGridViewTextBoxColumn3.HeaderText = "title";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 210;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "user_id";
-            this.dataGridViewTextBoxColumn5.HeaderText = "user_id";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
-            this.dataGridViewTextBoxColumn5.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "username";
-            this.dataGridViewTextBoxColumn6.HeaderText = "username";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn4.HeaderText = "name";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 210;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "progress";
-            this.dataGridViewTextBoxColumn7.HeaderText = "progress";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
             // lp_id
             // 
             this.lp_id.DataPropertyName = "lp_id";
@@ -195,16 +141,6 @@
             this.lp_id.Name = "lp_id";
             this.lp_id.ReadOnly = true;
             this.lp_id.Visible = false;
-            // 
-            // leccionesCursoUsrBindingSource
-            // 
-            this.leccionesCursoUsrBindingSource.DataMember = "LeccionesCursoUsr";
-            this.leccionesCursoUsrBindingSource.DataSource = this.chamiloDataSet;
-            // 
-            // chamiloDataSet
-            // 
-            this.chamiloDataSet.DataSetName = "chamiloDataSet";
-            this.chamiloDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtFirstName
             // 
@@ -291,56 +227,12 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "lp_view_id";
-            this.dataGridViewTextBoxColumn8.HeaderText = "lp_view_id";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "total_time";
-            this.dataGridViewTextBoxColumn9.HeaderText = "total_time";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 75;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "status";
-            this.dataGridViewTextBoxColumn10.HeaderText = "status";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "lp_item_id";
-            this.dataGridViewTextBoxColumn12.HeaderText = "lp_item_id";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "title";
-            this.dataGridViewTextBoxColumn13.HeaderText = "title";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 180;
-            // 
             // start_time
             // 
             this.start_time.DataPropertyName = "start_time";
             this.start_time.HeaderText = "start_time";
             this.start_time.Name = "start_time";
             this.start_time.ReadOnly = true;
-            // 
-            // c_lp_item_viewBindingSource
-            // 
-            this.c_lp_item_viewBindingSource.DataMember = "c_lp_item_view";
-            this.c_lp_item_viewBindingSource.DataSource = this.chamiloDataSet;
             // 
             // label7
             // 
@@ -615,6 +507,161 @@
             this.grpProcesando.Text = "Procesando";
             this.grpProcesando.Visible = false;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.progressBar1);
+            this.groupBox3.Controls.Add(this.BtnCreaLeccion);
+            this.groupBox3.Location = new System.Drawing.Point(763, 80);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(325, 90);
+            this.groupBox3.TabIndex = 45;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Crea y completa Lecciones";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(135, 34);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(165, 29);
+            this.progressBar1.TabIndex = 46;
+            // 
+            // BtnCreaLeccion
+            // 
+            this.BtnCreaLeccion.Location = new System.Drawing.Point(22, 34);
+            this.BtnCreaLeccion.Name = "BtnCreaLeccion";
+            this.BtnCreaLeccion.Size = new System.Drawing.Size(94, 29);
+            this.BtnCreaLeccion.TabIndex = 45;
+            this.BtnCreaLeccion.Text = "Crea Lecciónes";
+            this.BtnCreaLeccion.UseVisualStyleBackColor = true;
+            this.BtnCreaLeccion.Click += new System.EventHandler(this.BtnCreaLeccion_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(746, 12);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 13);
+            this.label13.TabIndex = 47;
+            this.label13.Text = "TIEMPO CURSO";
+            // 
+            // txtTiempoCurso
+            // 
+            this.txtTiempoCurso.Location = new System.Drawing.Point(749, 31);
+            this.txtTiempoCurso.Name = "txtTiempoCurso";
+            this.txtTiempoCurso.ReadOnly = true;
+            this.txtTiempoCurso.Size = new System.Drawing.Size(100, 20);
+            this.txtTiempoCurso.TabIndex = 46;
+            // 
+            // c_lp_item_viewBindingSource
+            // 
+            this.c_lp_item_viewBindingSource.DataMember = "c_lp_item_view";
+            this.c_lp_item_viewBindingSource.DataSource = this.chamiloDataSet;
+            // 
+            // chamiloDataSet
+            // 
+            this.chamiloDataSet.DataSetName = "chamiloDataSet";
+            this.chamiloDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // leccionesCursoUsrBindingSource
+            // 
+            this.leccionesCursoUsrBindingSource.DataMember = "LeccionesCursoUsr";
+            this.leccionesCursoUsrBindingSource.DataSource = this.chamiloDataSet;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "lp_view_id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "lp_view_id";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "total_time";
+            this.dataGridViewTextBoxColumn9.HeaderText = "total_time";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 75;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "status";
+            this.dataGridViewTextBoxColumn10.HeaderText = "status";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "lp_item_id";
+            this.dataGridViewTextBoxColumn12.HeaderText = "lp_item_id";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "title";
+            this.dataGridViewTextBoxColumn13.HeaderText = "title";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 180;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "iid";
+            this.dataGridViewTextBoxColumn1.HeaderText = "iid";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "c_id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "c_id";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            this.dataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "title";
+            this.dataGridViewTextBoxColumn3.HeaderText = "title";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 210;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "user_id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "user_id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            this.dataGridViewTextBoxColumn5.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "username";
+            this.dataGridViewTextBoxColumn6.HeaderText = "username";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn4.HeaderText = "name";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 210;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "progress";
+            this.dataGridViewTextBoxColumn7.HeaderText = "progress";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
             // leccionesCursoUsrTableAdapter
             // 
             this.leccionesCursoUsrTableAdapter.ClearBeforeFill = true;
@@ -660,39 +707,13 @@
             // 
             this.c_lp_item_view_origTableAdapter1.ClearBeforeFill = true;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.progressBar1);
-            this.groupBox3.Controls.Add(this.BtnCreaLeccion);
-            this.groupBox3.Location = new System.Drawing.Point(763, 80);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(325, 90);
-            this.groupBox3.TabIndex = 45;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Crea y completa Lecciones";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(135, 34);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(165, 29);
-            this.progressBar1.TabIndex = 46;
-            // 
-            // BtnCreaLeccion
-            // 
-            this.BtnCreaLeccion.Location = new System.Drawing.Point(22, 34);
-            this.BtnCreaLeccion.Name = "BtnCreaLeccion";
-            this.BtnCreaLeccion.Size = new System.Drawing.Size(94, 29);
-            this.BtnCreaLeccion.TabIndex = 45;
-            this.BtnCreaLeccion.Text = "Crea Lecciónes";
-            this.BtnCreaLeccion.UseVisualStyleBackColor = true;
-            this.BtnCreaLeccion.Click += new System.EventHandler(this.BtnCreaLeccion_Click);
-            // 
             // frmLeccionesNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 655);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.txtTiempoCurso);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.grpProcesando);
             this.Controls.Add(this.groupBox2);
@@ -715,18 +736,18 @@
             this.Text = "frmLeccionesNew";
             this.Load += new System.EventHandler(this.frmLeccionesNew_Load);
             ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_lp_item_viewDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c_lp_item_viewBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.grpProcesando.ResumeLayout(false);
             this.grpProcesando.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c_lpBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c_lp_item_viewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_lpBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -799,5 +820,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button BtnCreaLeccion;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtTiempoCurso;
     }
 }
