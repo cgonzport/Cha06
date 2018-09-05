@@ -757,13 +757,15 @@ namespace WFChamilo6 {
             
             private global::System.Data.DataColumn columnlogin_id;
             
-            private global::System.Data.DataColumn columnlogin_user_id;
-            
             private global::System.Data.DataColumn columnlogin_date;
             
             private global::System.Data.DataColumn columnlogout_date;
             
             private global::System.Data.DataColumn columnuser_ip;
+            
+            private global::System.Data.DataColumn columnt_dif;
+            
+            private global::System.Data.DataColumn columnlogin_user_id;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -808,14 +810,6 @@ namespace WFChamilo6 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn login_user_idColumn {
-                get {
-                    return this.columnlogin_user_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn login_dateColumn {
                 get {
                     return this.columnlogin_date;
@@ -835,6 +829,22 @@ namespace WFChamilo6 {
             public global::System.Data.DataColumn user_ipColumn {
                 get {
                     return this.columnuser_ip;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn t_difColumn {
+                get {
+                    return this.columnt_dif;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn login_user_idColumn {
+                get {
+                    return this.columnlogin_user_id;
                 }
             }
             
@@ -875,14 +885,15 @@ namespace WFChamilo6 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public track_e_loginRow Addtrack_e_loginRow(uint login_user_id, System.DateTime login_date, System.DateTime logout_date, string user_ip) {
+            public track_e_loginRow Addtrack_e_loginRow(System.DateTime login_date, System.DateTime logout_date, string user_ip, long t_dif, int login_user_id) {
                 track_e_loginRow rowtrack_e_loginRow = ((track_e_loginRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        login_user_id,
                         login_date,
                         logout_date,
-                        user_ip};
+                        user_ip,
+                        t_dif,
+                        login_user_id};
                 rowtrack_e_loginRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtrack_e_loginRow);
                 return rowtrack_e_loginRow;
@@ -913,10 +924,11 @@ namespace WFChamilo6 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnlogin_id = base.Columns["login_id"];
-                this.columnlogin_user_id = base.Columns["login_user_id"];
                 this.columnlogin_date = base.Columns["login_date"];
                 this.columnlogout_date = base.Columns["logout_date"];
                 this.columnuser_ip = base.Columns["user_ip"];
+                this.columnt_dif = base.Columns["t_dif"];
+                this.columnlogin_user_id = base.Columns["login_user_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -924,14 +936,16 @@ namespace WFChamilo6 {
             private void InitClass() {
                 this.columnlogin_id = new global::System.Data.DataColumn("login_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlogin_id);
-                this.columnlogin_user_id = new global::System.Data.DataColumn("login_user_id", typeof(uint), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlogin_user_id);
                 this.columnlogin_date = new global::System.Data.DataColumn("login_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlogin_date);
                 this.columnlogout_date = new global::System.Data.DataColumn("logout_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlogout_date);
                 this.columnuser_ip = new global::System.Data.DataColumn("user_ip", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnuser_ip);
+                this.columnt_dif = new global::System.Data.DataColumn("t_dif", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnt_dif);
+                this.columnlogin_user_id = new global::System.Data.DataColumn("login_user_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlogin_user_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnlogin_id}, true));
                 this.columnlogin_id.AutoIncrement = true;
@@ -939,10 +953,10 @@ namespace WFChamilo6 {
                 this.columnlogin_id.AutoIncrementStep = -1;
                 this.columnlogin_id.AllowDBNull = false;
                 this.columnlogin_id.Unique = true;
-                this.columnlogin_user_id.AllowDBNull = false;
                 this.columnlogin_date.AllowDBNull = false;
                 this.columnuser_ip.AllowDBNull = false;
                 this.columnuser_ip.MaxLength = 39;
+                this.columnlogin_user_id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7591,17 +7605,6 @@ namespace WFChamilo6 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public uint login_user_id {
-                get {
-                    return ((uint)(this[this.tabletrack_e_login.login_user_idColumn]));
-                }
-                set {
-                    this[this.tabletrack_e_login.login_user_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime login_date {
                 get {
                     return ((global::System.DateTime)(this[this.tabletrack_e_login.login_dateColumn]));
@@ -7640,6 +7643,33 @@ namespace WFChamilo6 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long t_dif {
+                get {
+                    try {
+                        return ((long)(this[this.tabletrack_e_login.t_difColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'t_dif\' de la tabla \'track_e_login\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletrack_e_login.t_difColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int login_user_id {
+                get {
+                    return ((int)(this[this.tabletrack_e_login.login_user_idColumn]));
+                }
+                set {
+                    this[this.tabletrack_e_login.login_user_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Islogout_dateNull() {
                 return this.IsNull(this.tabletrack_e_login.logout_dateColumn);
             }
@@ -7648,6 +7678,18 @@ namespace WFChamilo6 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setlogout_dateNull() {
                 this[this.tabletrack_e_login.logout_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ist_difNull() {
+                return this.IsNull(this.tabletrack_e_login.t_difColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Sett_difNull() {
+                this[this.tabletrack_e_login.t_difColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -12344,16 +12386,17 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "track_e_login";
             tableMapping.ColumnMappings.Add("login_id", "login_id");
-            tableMapping.ColumnMappings.Add("login_user_id", "login_user_id");
             tableMapping.ColumnMappings.Add("login_date", "login_date");
             tableMapping.ColumnMappings.Add("logout_date", "logout_date");
             tableMapping.ColumnMappings.Add("user_ip", "user_ip");
+            tableMapping.ColumnMappings.Add("t_dif", "t_dif");
+            tableMapping.ColumnMappings.Add("login_user_id", "login_user_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `track_e_login` WHERE ((`login_id` = @p1) AND (`login_user_id` = @p2)" +
-                " AND (`login_date` = @p3) AND (`user_ip` = @p4) AND ((@p5 = 1 AND `logout_date` " +
-                "IS NULL) OR (`logout_date` = @p6)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `track_e_login` WHERE ((`login_id` = @p1) AND (`login_date` = @p2) AN" +
+                "D (`user_ip` = @p3) AND ((@p4 = 1 AND `logout_date` IS NULL) OR (`logout_date` =" +
+                " @p5)) AND (`login_user_id` = @p6))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -12365,14 +12408,6 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
-            param.IsNullable = true;
-            param.SourceColumn = "login_user_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -12380,7 +12415,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p4";
+            param.ParameterName = "@p3";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -12388,7 +12423,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p5";
+            param.ParameterName = "@p4";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -12397,77 +12432,85 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p6";
+            param.ParameterName = "@p5";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "logout_date";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "login_user_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `track_e_login` (`login_user_id`, `login_date`, `user_ip`, `logout_da" +
-                "te`) VALUES (@p1, @p2, @p3, @p4)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `track_e_login` (`login_date`, `user_ip`, `logout_date`, `login_user_" +
+                "id`) VALUES (@p1, @p2, @p3, @p4)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
-            param.IsNullable = true;
-            param.SourceColumn = "login_user_id";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "login_date";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
+            param.ParameterName = "@p2";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "user_ip";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p4";
+            param.ParameterName = "@p3";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "logout_date";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "login_user_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `track_e_login` SET `login_user_id` = @p1, `login_date` = @p2, `user_ip` = @p3, `logout_date` = @p4 WHERE ((`login_id` = @p5) AND (`login_user_id` = @p6) AND (`login_date` = @p7) AND (`user_ip` = @p8) AND ((@p9 = 1 AND `logout_date` IS NULL) OR (`logout_date` = @p10)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `track_e_login` SET `login_date` = @p1, `user_ip` = @p2, `logout_date` = @p3, `login_user_id` = @p4 WHERE ((`login_id` = @p5) AND (`login_date` = @p6) AND (`user_ip` = @p7) AND ((@p8 = 1 AND `logout_date` IS NULL) OR (`logout_date` = @p9)) AND (`login_user_id` = @p10))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
-            param.IsNullable = true;
-            param.SourceColumn = "login_user_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "login_date";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
+            param.ParameterName = "@p2";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "user_ip";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p4";
+            param.ParameterName = "@p3";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "logout_date";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "login_user_id";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
@@ -12479,14 +12522,6 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
-            param.IsNullable = true;
-            param.SourceColumn = "login_user_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -12494,7 +12529,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
+            param.ParameterName = "@p7";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -12502,7 +12537,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -12511,11 +12546,19 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
+            param.ParameterName = "@p9";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "logout_date";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p10";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "login_user_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -12530,11 +12573,24 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM `track_e_login`";
+            this._commandCollection[0].CommandText = "SELECT login_id, login_date, user_ip, logout_date, login_user_id, TIME_TO_SEC(TIM" +
+                "EDIFF(logout_date, login_date)) AS t_dif FROM track_e_login";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "Select sum(TIME_TO_SEC(TIMEDIFF(logout_date, login_date ))) total from track_e_lo" +
+                "gin where login_user_id = @user_id";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@user_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "login_user_id";
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12594,24 +12650,24 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int p1, uint p2, System.DateTime p3, string p4, global::System.Nullable<global::System.DateTime> p6) {
+        public virtual int Delete(int p1, System.DateTime p2, string p3, global::System.Nullable<global::System.DateTime> p5, int p6) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((uint)(p2));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(p3));
-            if ((p4 == null)) {
-                throw new global::System.ArgumentNullException("p4");
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(p2));
+            if ((p3 == null)) {
+                throw new global::System.ArgumentNullException("p3");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(p4));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(p3));
             }
-            if ((p6.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(p6.Value));
+            if ((p5.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(p5.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(p6));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12632,21 +12688,21 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(uint p1, System.DateTime p2, string p3, global::System.Nullable<global::System.DateTime> p4) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((uint)(p1));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(p2));
-            if ((p3 == null)) {
-                throw new global::System.ArgumentNullException("p3");
+        public virtual int Insert(System.DateTime p1, string p2, global::System.Nullable<global::System.DateTime> p3, int p4) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(p1));
+            if ((p2 == null)) {
+                throw new global::System.ArgumentNullException("p2");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(p3));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
             }
-            if ((p4.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(p4.Value));
+            if ((p3.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(p3.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(p4));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12667,38 +12723,38 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(uint p1, System.DateTime p2, string p3, global::System.Nullable<global::System.DateTime> p4, int p5, uint p6, System.DateTime p7, string p8, global::System.Nullable<global::System.DateTime> p10) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((uint)(p1));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(p2));
-            if ((p3 == null)) {
-                throw new global::System.ArgumentNullException("p3");
+        public virtual int Update(System.DateTime p1, string p2, global::System.Nullable<global::System.DateTime> p3, int p4, int p5, System.DateTime p6, string p7, global::System.Nullable<global::System.DateTime> p9, int p10) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(p1));
+            if ((p2 == null)) {
+                throw new global::System.ArgumentNullException("p2");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(p3));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
             }
-            if ((p4.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(p4.Value));
+            if ((p3.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(p3.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(p4));
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((uint)(p6));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(p7));
-            if ((p8 == null)) {
-                throw new global::System.ArgumentNullException("p8");
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(p6));
+            if ((p7 == null)) {
+                throw new global::System.ArgumentNullException("p7");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(p8));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(p7));
             }
-            if ((p10.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(p10.Value));
+            if ((p9.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(p9.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(p10));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12712,6 +12768,35 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<decimal> ScalarQueryTotalTimeSec(int user_id) {
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(user_id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<decimal>();
+            }
+            else {
+                return new global::System.Nullable<decimal>(((decimal)(returnValue)));
             }
         }
     }

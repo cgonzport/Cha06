@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEntradaSalida));
-            this.chamiloDataSet = new WFChamilo6.chamiloDataSet();
-            this.track_e_loginBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.track_e_loginTableAdapter = new WFChamilo6.chamiloDataSetTableAdapters.track_e_loginTableAdapter();
-            this.tableAdapterManager = new WFChamilo6.chamiloDataSetTableAdapters.TableAdapterManager();
             this.track_e_loginBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -48,46 +44,24 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.track_e_loginBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.track_e_loginDataGridView = new System.Windows.Forms.DataGridView();
+            this.track_e_loginBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.chamiloDataSet = new WFChamilo6.chamiloDataSet();
+            this.track_e_loginTableAdapter = new WFChamilo6.chamiloDataSetTableAdapters.track_e_loginTableAdapter();
+            this.tableAdapterManager = new WFChamilo6.chamiloDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.login_user_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.track_e_loginBindingSource)).BeginInit();
+            this.t_dif = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTiempoTotal = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.track_e_loginBindingNavigator)).BeginInit();
             this.track_e_loginBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.track_e_loginDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.track_e_loginBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // chamiloDataSet
-            // 
-            this.chamiloDataSet.DataSetName = "chamiloDataSet";
-            this.chamiloDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // track_e_loginBindingSource
-            // 
-            this.track_e_loginBindingSource.DataMember = "track_e_login";
-            this.track_e_loginBindingSource.DataSource = this.chamiloDataSet;
-            // 
-            // track_e_loginTableAdapter
-            // 
-            this.track_e_loginTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.c_lp_item_view_origTableAdapter = null;
-            this.tableAdapterManager.c_lp_itemTableAdapter = null;
-            this.tableAdapterManager.c_lp_viewTableAdapter = null;
-            this.tableAdapterManager.c_lpTableAdapter = null;
-            this.tableAdapterManager.course_rel_userTableAdapter = null;
-            this.tableAdapterManager.courseTableAdapter = null;
-            this.tableAdapterManager.track_e_course_accessTableAdapter = null;
-            this.tableAdapterManager.track_e_exercisesTableAdapter = null;
-            this.tableAdapterManager.track_e_loginTableAdapter = this.track_e_loginTableAdapter;
-            this.tableAdapterManager.UpdateOrder = WFChamilo6.chamiloDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.userTableAdapter = null;
             // 
             // track_e_loginBindingNavigator
             // 
@@ -115,7 +89,7 @@
             this.track_e_loginBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.track_e_loginBindingNavigator.Name = "track_e_loginBindingNavigator";
             this.track_e_loginBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.track_e_loginBindingNavigator.Size = new System.Drawing.Size(625, 25);
+            this.track_e_loginBindingNavigator.Size = new System.Drawing.Size(689, 25);
             this.track_e_loginBindingNavigator.TabIndex = 0;
             this.track_e_loginBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -221,15 +195,45 @@
             this.track_e_loginDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.track_e_loginDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
+            this.login_user_id,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn5,
+            this.t_dif});
             this.track_e_loginDataGridView.DataSource = this.track_e_loginBindingSource;
             this.track_e_loginDataGridView.Location = new System.Drawing.Point(12, 43);
             this.track_e_loginDataGridView.Name = "track_e_loginDataGridView";
-            this.track_e_loginDataGridView.Size = new System.Drawing.Size(601, 458);
+            this.track_e_loginDataGridView.Size = new System.Drawing.Size(661, 468);
             this.track_e_loginDataGridView.TabIndex = 1;
+            // 
+            // track_e_loginBindingSource
+            // 
+            this.track_e_loginBindingSource.DataMember = "track_e_login";
+            this.track_e_loginBindingSource.DataSource = this.chamiloDataSet;
+            // 
+            // chamiloDataSet
+            // 
+            this.chamiloDataSet.DataSetName = "chamiloDataSet";
+            this.chamiloDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // track_e_loginTableAdapter
+            // 
+            this.track_e_loginTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.c_lp_item_view_origTableAdapter = null;
+            this.tableAdapterManager.c_lp_itemTableAdapter = null;
+            this.tableAdapterManager.c_lp_viewTableAdapter = null;
+            this.tableAdapterManager.c_lpTableAdapter = null;
+            this.tableAdapterManager.course_rel_userTableAdapter = null;
+            this.tableAdapterManager.courseTableAdapter = null;
+            this.tableAdapterManager.track_e_course_accessTableAdapter = null;
+            this.tableAdapterManager.track_e_exercisesTableAdapter = null;
+            this.tableAdapterManager.track_e_loginTableAdapter = this.track_e_loginTableAdapter;
+            this.tableAdapterManager.UpdateOrder = WFChamilo6.chamiloDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.userTableAdapter = null;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -237,11 +241,11 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "login_id";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // dataGridViewTextBoxColumn2
+            // login_user_id
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "login_user_id";
-            this.dataGridViewTextBoxColumn2.HeaderText = "login_user_id";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.login_user_id.DataPropertyName = "login_user_id";
+            this.login_user_id.HeaderText = "login_user_id";
+            this.login_user_id.Name = "login_user_id";
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -261,22 +265,47 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "user_ip";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // t_dif
+            // 
+            this.t_dif.DataPropertyName = "t_dif";
+            this.t_dif.HeaderText = "t_dif";
+            this.t_dif.Name = "t_dif";
+            // 
+            // txtTiempoTotal
+            // 
+            this.txtTiempoTotal.Location = new System.Drawing.Point(573, 17);
+            this.txtTiempoTotal.Name = "txtTiempoTotal";
+            this.txtTiempoTotal.ReadOnly = true;
+            this.txtTiempoTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTiempoTotal.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(498, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Tiempo Total";
+            // 
             // frmEntradaSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 519);
+            this.ClientSize = new System.Drawing.Size(689, 529);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtTiempoTotal);
             this.Controls.Add(this.track_e_loginDataGridView);
             this.Controls.Add(this.track_e_loginBindingNavigator);
             this.Name = "frmEntradaSalida";
             this.Text = "frmEntradaSalida";
             this.Load += new System.EventHandler(this.frmEntradaSalida_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.track_e_loginBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_e_loginBindingNavigator)).EndInit();
             this.track_e_loginBindingNavigator.ResumeLayout(false);
             this.track_e_loginBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.track_e_loginDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.track_e_loginBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,9 +332,12 @@
         private System.Windows.Forms.ToolStripButton track_e_loginBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView track_e_loginDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn login_user_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn t_dif;
+        private System.Windows.Forms.TextBox txtTiempoTotal;
+        private System.Windows.Forms.Label label1;
     }
 }
