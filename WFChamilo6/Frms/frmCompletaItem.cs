@@ -14,7 +14,7 @@ namespace WFChamilo6.Frms
     {
 
         public static Int32 actualRow;
-        public static Int32[] LineasSeleccionadas = new Int32[50];
+        public static Int32[] LineasSeleccionadas = new Int32[250];
 
         public frmCompletaItem()
         {
@@ -63,16 +63,17 @@ namespace WFChamilo6.Frms
                         TiempoSegundos = (Convert.ToDouble(txtSegAuto.Text) + r.Next(1, Convert.ToInt32(txtRandom.Text)));
                         FechaUnix = FechaUnix + TiempoSegundos;
                         c_lp_item_view_totalTableAdapter.UpdateQuery(Convert.ToInt32( item.Cells[0].Value), Convert.ToInt32( FechaUnix), Convert.ToInt32(TiempoSegundos));
+                        //HAY QUE REVISAR PORQUÉ NO ESTÁ FUNCIONANDO ESTO.. O QUE ES LO QUE ESTA HACIENDO
                     }
-                    catch{}
+                    catch {}
                 }  // FINAL DEL FOR
 
 
                 this.c_lp_item_view_totalTableAdapter.Fill(this.chamiloDataSet.c_lp_item_view_total);
                 this.c_lp_item_view_totalBindingSource.Filter = "c_id = " + frmMdi.gblCurso.ToString() + " and user_id = " + frmMdi.gblUsuario.ToString();
 
-
-                track_e_course_accessTableAdapter.InsertQuery(frmMdi.gblUsuario, Convert.ToDateTime(txtFecha.Text), UnixTimeStampToDateTime(FechaUnix + r.Next(1,60)), r.Next(1, 247), Convert.ToInt32("0"), null, frmMdi.gblCurso, txtIp.Text.ToString());
+                //track_e_course_accessTableAdapter.InsertQuery(frmMdi.gblUsuario, Convert.ToDateTime(txtFecha.Text), UnixTimeStampToDateTime(FechaUnix + r.Next(1, 60)), r.Next(1, 247), Convert.ToInt32("0"), null, frmMdi.gblCurso, txtIp.Text.ToString());
+                track_e_course_accessTableAdapter.InsertQuery(frmMdi.gblUsuario, Convert.ToDateTime(txtFecha.Text), UnixTimeStampToDateTime(FechaUnix + r.Next(1,60)), r.Next(1, 247), Convert.ToInt32("0"), frmMdi.gblCurso, txtIp.Text.ToString());
                 track_e_course_accessTableAdapter.Fill(chamiloDataSet.track_e_course_access);
 
                 ColocaSeleccion();

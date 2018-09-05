@@ -19163,8 +19163,8 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "INSERT INTO `track_e_course_access` (`user_id`, `login_course_date`, `logout_cour" +
-                "se_date`, `counter`, `session_id`, `login_ip`, `c_id`, `user_ip`) VALUES (@useri" +
-                "d, @fechaini, @fechafin, @random1, @cero, @nulo, @cursoid, @ip)";
+                "se_date`, `counter`, `session_id`, `c_id`, `user_ip`) VALUES (@userid, @fechaini" +
+                ", @fechafin, @random1, @cero, @cursoid, @ip)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@userid";
@@ -19200,13 +19200,6 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "session_id";
-            this._commandCollection[1].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@nulo";
-            param.DbType = global::System.Data.DbType.Object;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "login_ip";
             this._commandCollection[1].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@cursoid";
@@ -19419,7 +19412,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(int userid, System.DateTime fechaini, global::System.Nullable<global::System.DateTime> fechafin, int random1, int cero, object nulo, int cursoid, string ip) {
+        public virtual int InsertQuery(int userid, System.DateTime fechaini, global::System.Nullable<global::System.DateTime> fechafin, int random1, int cero, int cursoid, string ip) {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((int)(userid));
             command.Parameters[1].Value = ((System.DateTime)(fechaini));
@@ -19431,18 +19424,12 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             }
             command.Parameters[3].Value = ((int)(random1));
             command.Parameters[4].Value = ((int)(cero));
-            if ((nulo == null)) {
-                throw new global::System.ArgumentNullException("nulo");
-            }
-            else {
-                command.Parameters[5].Value = ((object)(nulo));
-            }
-            command.Parameters[6].Value = ((int)(cursoid));
+            command.Parameters[5].Value = ((int)(cursoid));
             if ((ip == null)) {
                 throw new global::System.ArgumentNullException("ip");
             }
             else {
-                command.Parameters[7].Value = ((string)(ip));
+                command.Parameters[6].Value = ((string)(ip));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -22181,6 +22168,14 @@ order by c_lp.display_order";
                 "ndos\r\nWHERE iid = @ClaveId";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ClaveId";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "iid";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@FechaHoraItem";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -22193,14 +22188,6 @@ order by c_lp.display_order";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "total_time";
-            this._commandCollection[1].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@ClaveId";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "iid";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._commandCollection[1].Parameters.Add(param);
         }
         
@@ -22232,11 +22219,11 @@ order by c_lp.display_order";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(int FechaHoraItem, int TotalSegundos, int ClaveId) {
+        public virtual int UpdateQuery(int ClaveId, int FechaHoraItem, int TotalSegundos) {
             global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
-            command.Parameters[0].Value = ((int)(FechaHoraItem));
-            command.Parameters[1].Value = ((int)(TotalSegundos));
-            command.Parameters[2].Value = ((int)(ClaveId));
+            command.Parameters[0].Value = ((int)(ClaveId));
+            command.Parameters[1].Value = ((int)(FechaHoraItem));
+            command.Parameters[2].Value = ((int)(TotalSegundos));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
