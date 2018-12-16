@@ -4073,7 +4073,6 @@ namespace WFChamilo6 {
                 this.columnorig_lp_id.AllowDBNull = false;
                 this.columnorig_lp_item_id.AllowDBNull = false;
                 this.columnexe_duration.AllowDBNull = false;
-                this.columnexpired_time_control.AllowDBNull = false;
                 this.columnorig_lp_item_view_id.AllowDBNull = false;
                 this.columnquestions_to_check.AllowDBNull = false;
             }
@@ -5761,6 +5760,8 @@ namespace WFChamilo6 {
             
             private global::System.Data.DataColumn columnexpired_on;
             
+            private global::System.Data.DataColumn columnaccumulate_scorm_time;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public c_lpDataTable() {
@@ -6068,6 +6069,14 @@ namespace WFChamilo6 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn accumulate_scorm_timeColumn {
+                get {
+                    return this.columnaccumulate_scorm_time;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6136,7 +6145,8 @@ namespace WFChamilo6 {
                         System.DateTime created_on, 
                         System.DateTime modified_on, 
                         System.DateTime publicated_on, 
-                        System.DateTime expired_on) {
+                        System.DateTime expired_on, 
+                        int accumulate_scorm_time) {
                 c_lpRow rowc_lpRow = ((c_lpRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -6172,7 +6182,8 @@ namespace WFChamilo6 {
                         created_on,
                         modified_on,
                         publicated_on,
-                        expired_on};
+                        expired_on,
+                        accumulate_scorm_time};
                 rowc_lpRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowc_lpRow);
                 return rowc_lpRow;
@@ -6236,6 +6247,7 @@ namespace WFChamilo6 {
                 this.columnmodified_on = base.Columns["modified_on"];
                 this.columnpublicated_on = base.Columns["publicated_on"];
                 this.columnexpired_on = base.Columns["expired_on"];
+                this.columnaccumulate_scorm_time = base.Columns["accumulate_scorm_time"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6312,6 +6324,8 @@ namespace WFChamilo6 {
                 base.Columns.Add(this.columnpublicated_on);
                 this.columnexpired_on = new global::System.Data.DataColumn("expired_on", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnexpired_on);
+                this.columnaccumulate_scorm_time = new global::System.Data.DataColumn("accumulate_scorm_time", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaccumulate_scorm_time);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columniid}, true));
                 this.columniid.AutoIncrement = true;
@@ -6354,8 +6368,7 @@ namespace WFChamilo6 {
                 this.columnsubscribe_users.AllowDBNull = false;
                 this.columncreated_on.AllowDBNull = false;
                 this.columnmodified_on.AllowDBNull = false;
-                this.columnpublicated_on.AllowDBNull = false;
-                this.columnexpired_on.AllowDBNull = false;
+                this.columnaccumulate_scorm_time.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10048,7 +10061,13 @@ namespace WFChamilo6 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime expired_time_control {
                 get {
-                    return ((global::System.DateTime)(this[this.tabletrack_e_exercises.expired_time_controlColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tabletrack_e_exercises.expired_time_controlColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'expired_time_control\' de la tabla \'track_e_exercises\' es " +
+                                "DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tabletrack_e_exercises.expired_time_controlColumn] = value;
@@ -10087,6 +10106,18 @@ namespace WFChamilo6 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setexe_user_idNull() {
                 this[this.tabletrack_e_exercises.exe_user_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isexpired_time_controlNull() {
+                return this.IsNull(this.tabletrack_e_exercises.expired_time_controlColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setexpired_time_controlNull() {
+                this[this.tabletrack_e_exercises.expired_time_controlColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10994,7 +11025,12 @@ namespace WFChamilo6 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime publicated_on {
                 get {
-                    return ((global::System.DateTime)(this[this.tablec_lp.publicated_onColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tablec_lp.publicated_onColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'publicated_on\' de la tabla \'c_lp\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablec_lp.publicated_onColumn] = value;
@@ -11005,10 +11041,26 @@ namespace WFChamilo6 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime expired_on {
                 get {
-                    return ((global::System.DateTime)(this[this.tablec_lp.expired_onColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tablec_lp.expired_onColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'expired_on\' de la tabla \'c_lp\' es DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablec_lp.expired_onColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int accumulate_scorm_time {
+                get {
+                    return ((int)(this[this.tablec_lp.accumulate_scorm_timeColumn]));
+                }
+                set {
+                    this[this.tablec_lp.accumulate_scorm_timeColumn] = value;
                 }
             }
             
@@ -11046,6 +11098,30 @@ namespace WFChamilo6 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdescriptionNull() {
                 this[this.tablec_lp.descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ispublicated_onNull() {
+                return this.IsNull(this.tablec_lp.publicated_onColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setpublicated_onNull() {
+                this[this.tablec_lp.publicated_onColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isexpired_onNull() {
+                return this.IsNull(this.tablec_lp.expired_onColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setexpired_onNull() {
+                this[this.tablec_lp.expired_onColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -19677,7 +19753,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `track_e_exercises` WHERE ((`exe_id` = @p1) AND ((@p2 = 1 AND `exe_user_id` IS NULL) OR (`exe_user_id` = @p3)) AND (`exe_date` = @p4) AND (`c_id` = @p5) AND (`exe_exo_id` = @p6) AND (`exe_result` = @p7) AND (`exe_weighting` = @p8) AND (`user_ip` = @p9) AND (`status` = @p10) AND (`data_tracking` = @p11) AND (`start_date` = @p12) AND (`steps_counter` = @p13) AND (`session_id` = @p14) AND (`orig_lp_id` = @p15) AND (`orig_lp_item_id` = @p16) AND (`exe_duration` = @p17) AND (`expired_time_control` = @p18) AND (`orig_lp_item_view_id` = @p19) AND (`questions_to_check` = @p20))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `track_e_exercises` WHERE ((`exe_id` = @p1) AND ((@p2 = 1 AND `exe_user_id` IS NULL) OR (`exe_user_id` = @p3)) AND (`exe_date` = @p4) AND (`c_id` = @p5) AND (`exe_exo_id` = @p6) AND (`exe_result` = @p7) AND (`exe_weighting` = @p8) AND (`user_ip` = @p9) AND (`status` = @p10) AND (`data_tracking` = @p11) AND (`start_date` = @p12) AND (`steps_counter` = @p13) AND (`session_id` = @p14) AND (`orig_lp_id` = @p15) AND (`orig_lp_item_id` = @p16) AND (`exe_duration` = @p17) AND ((@p18 = 1 AND `expired_time_control` IS NULL) OR (`expired_time_control` = @p19)) AND (`orig_lp_item_view_id` = @p20) AND (`questions_to_check` = @p21))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -19817,6 +19893,15 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p18";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "expired_time_control";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p19";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -19824,7 +19909,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p19";
+            param.ParameterName = "@p20";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -19832,7 +19917,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p20";
+            param.ParameterName = "@p21";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "questions_to_check";
@@ -19968,7 +20053,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `track_e_exercises` SET `exe_user_id` = @p1, `exe_date` = @p2, `c_id` = @p3, `exe_exo_id` = @p4, `exe_result` = @p5, `exe_weighting` = @p6, `user_ip` = @p7, `status` = @p8, `data_tracking` = @p9, `start_date` = @p10, `steps_counter` = @p11, `session_id` = @p12, `orig_lp_id` = @p13, `orig_lp_item_id` = @p14, `exe_duration` = @p15, `expired_time_control` = @p16, `orig_lp_item_view_id` = @p17, `questions_to_check` = @p18 WHERE ((`exe_id` = @p19) AND ((@p20 = 1 AND `exe_user_id` IS NULL) OR (`exe_user_id` = @p21)) AND (`exe_date` = @p22) AND (`c_id` = @p23) AND (`exe_exo_id` = @p24) AND (`exe_result` = @p25) AND (`exe_weighting` = @p26) AND (`user_ip` = @p27) AND (`status` = @p28) AND (`data_tracking` = @p29) AND (`start_date` = @p30) AND (`steps_counter` = @p31) AND (`session_id` = @p32) AND (`orig_lp_id` = @p33) AND (`orig_lp_item_id` = @p34) AND (`exe_duration` = @p35) AND (`expired_time_control` = @p36) AND (`orig_lp_item_view_id` = @p37) AND (`questions_to_check` = @p38))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `track_e_exercises` SET `exe_user_id` = @p1, `exe_date` = @p2, `c_id` = @p3, `exe_exo_id` = @p4, `exe_result` = @p5, `exe_weighting` = @p6, `user_ip` = @p7, `status` = @p8, `data_tracking` = @p9, `start_date` = @p10, `steps_counter` = @p11, `session_id` = @p12, `orig_lp_id` = @p13, `orig_lp_item_id` = @p14, `exe_duration` = @p15, `expired_time_control` = @p16, `orig_lp_item_view_id` = @p17, `questions_to_check` = @p18 WHERE ((`exe_id` = @p19) AND ((@p20 = 1 AND `exe_user_id` IS NULL) OR (`exe_user_id` = @p21)) AND (`exe_date` = @p22) AND (`c_id` = @p23) AND (`exe_exo_id` = @p24) AND (`exe_result` = @p25) AND (`exe_weighting` = @p26) AND (`user_ip` = @p27) AND (`status` = @p28) AND (`data_tracking` = @p29) AND (`start_date` = @p30) AND (`steps_counter` = @p31) AND (`session_id` = @p32) AND (`orig_lp_id` = @p33) AND (`orig_lp_item_id` = @p34) AND (`exe_duration` = @p35) AND ((@p36 = 1 AND `expired_time_control` IS NULL) OR (`expired_time_control` = @p37)) AND (`orig_lp_item_view_id` = @p38) AND (`questions_to_check` = @p39))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -20232,6 +20317,15 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p36";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "expired_time_control";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p37";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -20239,7 +20333,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p37";
+            param.ParameterName = "@p38";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -20247,7 +20341,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p38";
+            param.ParameterName = "@p39";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "questions_to_check";
@@ -20406,9 +20500,9 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
                     int p15, 
                     int p16, 
                     int p17, 
-                    System.DateTime p18, 
-                    int p19, 
-                    string p20) {
+                    global::System.Nullable<global::System.DateTime> p19, 
+                    int p20, 
+                    string p21) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
             if ((p3.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -20447,13 +20541,20 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(p15));
             this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(p16));
             this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(p17));
-            this.Adapter.DeleteCommand.Parameters[17].Value = ((System.DateTime)(p18));
-            this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(p19));
-            if ((p20 == null)) {
-                throw new global::System.ArgumentNullException("p20");
+            if ((p19.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((System.DateTime)(p19.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(p20));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[19].Value = ((int)(p20));
+            if ((p21 == null)) {
+                throw new global::System.ArgumentNullException("p21");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(p21));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -20491,7 +20592,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
                     int p13, 
                     int p14, 
                     int p15, 
-                    System.DateTime p16, 
+                    global::System.Nullable<global::System.DateTime> p16, 
                     int p17, 
                     string p18) {
             if ((p1.HasValue == true)) {
@@ -20529,7 +20630,12 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this.Adapter.InsertCommand.Parameters[12].Value = ((int)(p13));
             this.Adapter.InsertCommand.Parameters[13].Value = ((int)(p14));
             this.Adapter.InsertCommand.Parameters[14].Value = ((int)(p15));
-            this.Adapter.InsertCommand.Parameters[15].Value = ((System.DateTime)(p16));
+            if ((p16.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((System.DateTime)(p16.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
             this.Adapter.InsertCommand.Parameters[16].Value = ((int)(p17));
             if ((p18 == null)) {
                 throw new global::System.ArgumentNullException("p18");
@@ -20573,7 +20679,7 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
                     int p13, 
                     int p14, 
                     int p15, 
-                    System.DateTime p16, 
+                    global::System.Nullable<global::System.DateTime> p16, 
                     int p17, 
                     string p18, 
                     int p19, 
@@ -20592,9 +20698,9 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
                     int p33, 
                     int p34, 
                     int p35, 
-                    System.DateTime p36, 
-                    int p37, 
-                    string p38) {
+                    global::System.Nullable<global::System.DateTime> p37, 
+                    int p38, 
+                    string p39) {
             if ((p1.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1.Value));
             }
@@ -20630,7 +20736,12 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(p13));
             this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(p14));
             this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(p15));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(p16));
+            if ((p16.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(p16.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(p17));
             if ((p18 == null)) {
                 throw new global::System.ArgumentNullException("p18");
@@ -20676,13 +20787,20 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(p33));
             this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(p34));
             this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(p35));
-            this.Adapter.UpdateCommand.Parameters[35].Value = ((System.DateTime)(p36));
-            this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(p37));
-            if ((p38 == null)) {
-                throw new global::System.ArgumentNullException("p38");
+            if ((p37.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((System.DateTime)(p37.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(p38));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(p38));
+            if ((p39 == null)) {
+                throw new global::System.ArgumentNullException("p39");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(p39));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -21430,7 +21548,8 @@ namespace WFChamilo6.chamiloDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT * FROM `c_lp_view` where c_id = @c and user_id = @user and lp_id =@lecc";
+            this._commandCollection[1].CommandText = "SELECT c_id, id, iid, last_item, lp_id, progress, session_id, user_id, view_count" +
+                " FROM c_lp_view WHERE (c_id = @c) AND (user_id = @user) AND (lp_id = @lecc)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@c";
@@ -21997,9 +22116,9 @@ from
 `user` as d 
 where 
 a.c_id = b.c_id and 
-a.lp_id = b.id and 
 a.c_id = c.id and 
-a.user_id = d.id";
+a.lp_id = b.id and 
+a.user_id = d.id ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -22482,10 +22601,11 @@ order by c_lp.display_order";
             tableMapping.ColumnMappings.Add("modified_on", "modified_on");
             tableMapping.ColumnMappings.Add("publicated_on", "publicated_on");
             tableMapping.ColumnMappings.Add("expired_on", "expired_on");
+            tableMapping.ColumnMappings.Add("accumulate_scorm_time", "accumulate_scorm_time");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `c_lp` WHERE ((`iid` = @p1) AND (`c_id` = @p2) AND ((@p3 = 1 AND `id` IS NULL) OR (`id` = @p4)) AND (`lp_type` = @p5) AND (`name` = @p6) AND ((@p7 = 1 AND `ref` IS NULL) OR (`ref` = @p8)) AND ((@p9 = 1 AND `description` IS NULL) OR (`description` = @p10)) AND (`path` = @p11) AND (`force_commit` = @p12) AND (`default_view_mod` = @p13) AND (`default_encoding` = @p14) AND (`display_order` = @p15) AND (`content_maker` = @p16) AND (`content_local` = @p17) AND (`content_license` = @p18) AND (`prevent_reinit` = @p19) AND (`js_lib` = @p20) AND (`debug` = @p21) AND (`theme` = @p22) AND (`preview_image` = @p23) AND (`author` = @p24) AND (`session_id` = @p25) AND (`prerequisite` = @p26) AND (`hide_toc_frame` = @p27) AND (`seriousgame_mode` = @p28) AND (`use_max_score` = @p29) AND (`autolaunch` = @p30) AND (`category_id` = @p31) AND (`max_attempts` = @p32) AND (`subscribe_users` = @p33) AND (`created_on` = @p34) AND (`modified_on` = @p35) AND (`publicated_on` = @p36) AND (`expired_on` = @p37))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `c_lp` WHERE ((`iid` = @p1) AND (`c_id` = @p2) AND ((@p3 = 1 AND `id` IS NULL) OR (`id` = @p4)) AND (`lp_type` = @p5) AND (`name` = @p6) AND ((@p7 = 1 AND `ref` IS NULL) OR (`ref` = @p8)) AND ((@p9 = 1 AND `description` IS NULL) OR (`description` = @p10)) AND (`path` = @p11) AND (`force_commit` = @p12) AND (`default_view_mod` = @p13) AND (`default_encoding` = @p14) AND (`display_order` = @p15) AND (`content_maker` = @p16) AND (`content_local` = @p17) AND (`content_license` = @p18) AND (`prevent_reinit` = @p19) AND (`js_lib` = @p20) AND (`debug` = @p21) AND (`theme` = @p22) AND (`preview_image` = @p23) AND (`author` = @p24) AND (`session_id` = @p25) AND (`prerequisite` = @p26) AND (`hide_toc_frame` = @p27) AND (`seriousgame_mode` = @p28) AND (`use_max_score` = @p29) AND (`autolaunch` = @p30) AND (`category_id` = @p31) AND (`max_attempts` = @p32) AND (`subscribe_users` = @p33) AND (`created_on` = @p34) AND (`modified_on` = @p35) AND ((@p36 = 1 AND `publicated_on` IS NULL) OR (`publicated_on` = @p37)) AND ((@p38 = 1 AND `expired_on` IS NULL) OR (`expired_on` = @p39)) AND (`accumulate_scorm_time` = @p40))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -22766,6 +22886,15 @@ order by c_lp.display_order";
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p36";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "publicated_on";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p37";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -22773,16 +22902,33 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p37";
+            param.ParameterName = "@p38";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "expired_on";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p39";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "expired_on";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p40";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "accumulate_scorm_time";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `c_lp` (`c_id`, `id`, `lp_type`, `name`, `ref`, `description`, `path`, `force_commit`, `default_view_mod`, `default_encoding`, `display_order`, `content_maker`, `content_local`, `content_license`, `prevent_reinit`, `js_lib`, `debug`, `theme`, `preview_image`, `author`, `session_id`, `prerequisite`, `hide_toc_frame`, `seriousgame_mode`, `use_max_score`, `autolaunch`, `category_id`, `max_attempts`, `subscribe_users`, `created_on`, `modified_on`, `publicated_on`, `expired_on`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `c_lp` (`c_id`, `id`, `lp_type`, `name`, `ref`, `description`, `path`, `force_commit`, `default_view_mod`, `default_encoding`, `display_order`, `content_maker`, `content_local`, `content_license`, `prevent_reinit`, `js_lib`, `debug`, `theme`, `preview_image`, `author`, `session_id`, `prerequisite`, `hide_toc_frame`, `seriousgame_mode`, `use_max_score`, `autolaunch`, `category_id`, `max_attempts`, `subscribe_users`, `created_on`, `modified_on`, `publicated_on`, `expired_on`, `accumulate_scorm_time`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -23009,6 +23155,13 @@ order by c_lp.display_order";
             param.IsNullable = true;
             param.SourceColumn = "expired_on";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p34";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "accumulate_scorm_time";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE `c_lp` SET `c_id` = @p1, `id` = @p2, `lp_type` = @p3, `name` = @p4, `ref` " +
@@ -23019,20 +23172,22 @@ order by c_lp.display_order";
                 "` = @p20, `session_id` = @p21, `prerequisite` = @p22, `hide_toc_frame` = @p23, `" +
                 "seriousgame_mode` = @p24, `use_max_score` = @p25, `autolaunch` = @p26, `category" +
                 "_id` = @p27, `max_attempts` = @p28, `subscribe_users` = @p29, `created_on` = @p3" +
-                "0, `modified_on` = @p31, `publicated_on` = @p32, `expired_on` = @p33 WHERE ((`ii" +
-                "d` = @p34) AND (`c_id` = @p35) AND ((@p36 = 1 AND `id` IS NULL) OR (`id` = @p37)" +
-                ") AND (`lp_type` = @p38) AND (`name` = @p39) AND ((@p40 = 1 AND `ref` IS NULL) O" +
-                "R (`ref` = @p41)) AND ((@p42 = 1 AND `description` IS NULL) OR (`description` = " +
-                "@p43)) AND (`path` = @p44) AND (`force_commit` = @p45) AND (`default_view_mod` =" +
-                " @p46) AND (`default_encoding` = @p47) AND (`display_order` = @p48) AND (`conten" +
-                "t_maker` = @p49) AND (`content_local` = @p50) AND (`content_license` = @p51) AND" +
-                " (`prevent_reinit` = @p52) AND (`js_lib` = @p53) AND (`debug` = @p54) AND (`them" +
-                "e` = @p55) AND (`preview_image` = @p56) AND (`author` = @p57) AND (`session_id` " +
-                "= @p58) AND (`prerequisite` = @p59) AND (`hide_toc_frame` = @p60) AND (`seriousg" +
-                "ame_mode` = @p61) AND (`use_max_score` = @p62) AND (`autolaunch` = @p63) AND (`c" +
-                "ategory_id` = @p64) AND (`max_attempts` = @p65) AND (`subscribe_users` = @p66) A" +
-                "ND (`created_on` = @p67) AND (`modified_on` = @p68) AND (`publicated_on` = @p69)" +
-                " AND (`expired_on` = @p70))";
+                "0, `modified_on` = @p31, `publicated_on` = @p32, `expired_on` = @p33, `accumulat" +
+                "e_scorm_time` = @p34 WHERE ((`iid` = @p35) AND (`c_id` = @p36) AND ((@p37 = 1 AN" +
+                "D `id` IS NULL) OR (`id` = @p38)) AND (`lp_type` = @p39) AND (`name` = @p40) AND" +
+                " ((@p41 = 1 AND `ref` IS NULL) OR (`ref` = @p42)) AND ((@p43 = 1 AND `descriptio" +
+                "n` IS NULL) OR (`description` = @p44)) AND (`path` = @p45) AND (`force_commit` =" +
+                " @p46) AND (`default_view_mod` = @p47) AND (`default_encoding` = @p48) AND (`dis" +
+                "play_order` = @p49) AND (`content_maker` = @p50) AND (`content_local` = @p51) AN" +
+                "D (`content_license` = @p52) AND (`prevent_reinit` = @p53) AND (`js_lib` = @p54)" +
+                " AND (`debug` = @p55) AND (`theme` = @p56) AND (`preview_image` = @p57) AND (`au" +
+                "thor` = @p58) AND (`session_id` = @p59) AND (`prerequisite` = @p60) AND (`hide_t" +
+                "oc_frame` = @p61) AND (`seriousgame_mode` = @p62) AND (`use_max_score` = @p63) A" +
+                "ND (`autolaunch` = @p64) AND (`category_id` = @p65) AND (`max_attempts` = @p66) " +
+                "AND (`subscribe_users` = @p67) AND (`created_on` = @p68) AND (`modified_on` = @p" +
+                "69) AND ((@p70 = 1 AND `publicated_on` IS NULL) OR (`publicated_on` = @p71)) AND" +
+                " ((@p72 = 1 AND `expired_on` IS NULL) OR (`expired_on` = @p73)) AND (`accumulate" +
+                "_scorm_time` = @p74))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -23264,15 +23419,14 @@ order by c_lp.display_order";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "iid";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumn = "accumulate_scorm_time";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p35";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "c_id";
+            param.SourceColumn = "iid";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -23280,9 +23434,8 @@ order by c_lp.display_order";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "id";
+            param.SourceColumn = "c_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p37";
@@ -23291,9 +23444,18 @@ order by c_lp.display_order";
             param.IsNullable = true;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p38";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p39";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23301,7 +23463,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p39";
+            param.ParameterName = "@p40";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -23309,23 +23471,23 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p40";
+            param.ParameterName = "@p41";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "ref";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p41";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "ref";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p42";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.IsNullable = true;
+            param.SourceColumn = "ref";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p43";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23334,21 +23496,21 @@ order by c_lp.display_order";
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p43";
+            param.ParameterName = "@p44";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "description";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p44";
+            param.ParameterName = "@p45";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "path";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p45";
+            param.ParameterName = "@p46";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -23356,7 +23518,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p46";
+            param.ParameterName = "@p47";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -23364,7 +23526,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p47";
+            param.ParameterName = "@p48";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -23372,7 +23534,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p48";
+            param.ParameterName = "@p49";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23380,14 +23542,14 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p49";
+            param.ParameterName = "@p50";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "content_maker";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p50";
+            param.ParameterName = "@p51";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -23395,14 +23557,14 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p51";
+            param.ParameterName = "@p52";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "content_license";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p52";
+            param.ParameterName = "@p53";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -23410,14 +23572,14 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p53";
+            param.ParameterName = "@p54";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
             param.IsNullable = true;
             param.SourceColumn = "js_lib";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p54";
+            param.ParameterName = "@p55";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -23425,7 +23587,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p55";
+            param.ParameterName = "@p56";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -23433,7 +23595,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p56";
+            param.ParameterName = "@p57";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -23441,7 +23603,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p57";
+            param.ParameterName = "@p58";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -23449,7 +23611,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p58";
+            param.ParameterName = "@p59";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23457,7 +23619,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p59";
+            param.ParameterName = "@p60";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23465,7 +23627,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p60";
+            param.ParameterName = "@p61";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -23473,7 +23635,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p61";
+            param.ParameterName = "@p62";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -23481,7 +23643,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p62";
+            param.ParameterName = "@p63";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23489,7 +23651,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p63";
+            param.ParameterName = "@p64";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23497,7 +23659,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p64";
+            param.ParameterName = "@p65";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23505,7 +23667,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p65";
+            param.ParameterName = "@p66";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23513,7 +23675,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p66";
+            param.ParameterName = "@p67";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -23521,7 +23683,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p67";
+            param.ParameterName = "@p68";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -23529,7 +23691,7 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p68";
+            param.ParameterName = "@p69";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -23537,7 +23699,16 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p69";
+            param.ParameterName = "@p70";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "publicated_on";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p71";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
@@ -23545,11 +23716,28 @@ order by c_lp.display_order";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p70";
+            param.ParameterName = "@p72";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "expired_on";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p73";
             param.DbType = global::System.Data.DbType.DateTime;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
             param.IsNullable = true;
             param.SourceColumn = "expired_on";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p74";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "accumulate_scorm_time";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -23571,7 +23759,7 @@ order by c_lp.display_order";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "select * from c_lp where c_id = @c";
+            this._commandCollection[1].CommandText = @"SELECT accumulate_scorm_time, author, autolaunch, c_id, category_id, content_license, content_local, content_maker, created_on, debug, default_encoding, default_view_mod, description, display_order, expired_on, force_commit, hide_toc_frame, id, iid, js_lib, lp_type, max_attempts, modified_on, name, path, prerequisite, prevent_reinit, preview_image, publicated_on, ref, seriousgame_mode, session_id, subscribe_users, theme, use_max_score FROM c_lp WHERE (c_id = @c)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@c";
@@ -23582,8 +23770,7 @@ order by c_lp.display_order";
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT * from c_lp where id not in (select lp_id from c_lp_view where user_id = @" +
-                "user and c_id = @curso) ";
+            this._commandCollection[2].CommandText = @"SELECT accumulate_scorm_time, author, autolaunch, c_id, category_id, content_license, content_local, content_maker, created_on, debug, default_encoding, default_view_mod, description, display_order, expired_on, force_commit, hide_toc_frame, id, iid, js_lib, lp_type, max_attempts, modified_on, name, path, prerequisite, prevent_reinit, preview_image, publicated_on, ref, seriousgame_mode, session_id, subscribe_users, theme, use_max_score FROM c_lp WHERE (id NOT IN (SELECT lp_id FROM c_lp_view WHERE (user_id = @user ) AND (c_id = @curso)))";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@user";
@@ -23744,8 +23931,9 @@ order by c_lp.display_order";
                     int p33, 
                     System.DateTime p34, 
                     System.DateTime p35, 
-                    System.DateTime p36, 
-                    System.DateTime p37) {
+                    global::System.Nullable<global::System.DateTime> p37, 
+                    global::System.Nullable<global::System.DateTime> p39, 
+                    int p40) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(p1));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(p2));
             if ((p4.HasValue == true)) {
@@ -23854,8 +24042,23 @@ order by c_lp.display_order";
             this.Adapter.DeleteCommand.Parameters[32].Value = ((int)(p33));
             this.Adapter.DeleteCommand.Parameters[33].Value = ((System.DateTime)(p34));
             this.Adapter.DeleteCommand.Parameters[34].Value = ((System.DateTime)(p35));
-            this.Adapter.DeleteCommand.Parameters[35].Value = ((System.DateTime)(p36));
-            this.Adapter.DeleteCommand.Parameters[36].Value = ((System.DateTime)(p37));
+            if ((p37.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((System.DateTime)(p37.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            if ((p39.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((System.DateTime)(p39.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[39].Value = ((int)(p40));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -23908,8 +24111,9 @@ order by c_lp.display_order";
                     int p29, 
                     System.DateTime p30, 
                     System.DateTime p31, 
-                    System.DateTime p32, 
-                    System.DateTime p33) {
+                    global::System.Nullable<global::System.DateTime> p32, 
+                    global::System.Nullable<global::System.DateTime> p33, 
+                    int p34) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(p1));
             if ((p2.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(p2.Value));
@@ -24011,8 +24215,19 @@ order by c_lp.display_order";
             this.Adapter.InsertCommand.Parameters[28].Value = ((int)(p29));
             this.Adapter.InsertCommand.Parameters[29].Value = ((System.DateTime)(p30));
             this.Adapter.InsertCommand.Parameters[30].Value = ((System.DateTime)(p31));
-            this.Adapter.InsertCommand.Parameters[31].Value = ((System.DateTime)(p32));
-            this.Adapter.InsertCommand.Parameters[32].Value = ((System.DateTime)(p33));
+            if ((p32.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[31].Value = ((System.DateTime)(p32.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((p33.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[32].Value = ((System.DateTime)(p33.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[33].Value = ((int)(p34));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -24065,42 +24280,44 @@ order by c_lp.display_order";
                     int p29, 
                     System.DateTime p30, 
                     System.DateTime p31, 
-                    System.DateTime p32, 
-                    System.DateTime p33, 
+                    global::System.Nullable<global::System.DateTime> p32, 
+                    global::System.Nullable<global::System.DateTime> p33, 
                     int p34, 
                     int p35, 
-                    global::System.Nullable<int> p37, 
-                    int p38, 
-                    string p39, 
-                    string p41, 
-                    string p43, 
+                    int p36, 
+                    global::System.Nullable<int> p38, 
+                    int p39, 
+                    string p40, 
+                    string p42, 
                     string p44, 
-                    byte p45, 
-                    string p46, 
+                    string p45, 
+                    byte p46, 
                     string p47, 
-                    int p48, 
-                    string p49, 
+                    string p48, 
+                    int p49, 
                     string p50, 
                     string p51, 
-                    byte p52, 
-                    string p53, 
-                    byte p54, 
-                    string p55, 
+                    string p52, 
+                    byte p53, 
+                    string p54, 
+                    byte p55, 
                     string p56, 
                     string p57, 
-                    int p58, 
+                    string p58, 
                     int p59, 
-                    byte p60, 
+                    int p60, 
                     byte p61, 
-                    int p62, 
+                    byte p62, 
                     int p63, 
                     int p64, 
                     int p65, 
                     int p66, 
-                    System.DateTime p67, 
+                    int p67, 
                     System.DateTime p68, 
                     System.DateTime p69, 
-                    System.DateTime p70) {
+                    global::System.Nullable<global::System.DateTime> p71, 
+                    global::System.Nullable<global::System.DateTime> p73, 
+                    int p74) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(p1));
             if ((p2.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(p2.Value));
@@ -24202,67 +24419,72 @@ order by c_lp.display_order";
             this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(p29));
             this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(p30));
             this.Adapter.UpdateCommand.Parameters[30].Value = ((System.DateTime)(p31));
-            this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(p32));
-            this.Adapter.UpdateCommand.Parameters[32].Value = ((System.DateTime)(p33));
+            if ((p32.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(p32.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((p33.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((System.DateTime)(p33.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(p34));
             this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(p35));
-            if ((p37.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(p37.Value));
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(p36));
+            if ((p38.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(p38.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(p38));
-            if ((p39 == null)) {
-                throw new global::System.ArgumentNullException("p39");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(p39));
-            }
-            if ((p41 == null)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(p39));
+            if ((p40 == null)) {
+                throw new global::System.ArgumentNullException("p40");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(p41));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(p40));
             }
-            if ((p43 == null)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            if ((p42 == null)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(p43));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(p42));
             }
             if ((p44 == null)) {
-                throw new global::System.ArgumentNullException("p44");
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(p44));
             }
-            this.Adapter.UpdateCommand.Parameters[44].Value = ((byte)(p45));
-            if ((p46 == null)) {
-                throw new global::System.ArgumentNullException("p46");
+            if ((p45 == null)) {
+                throw new global::System.ArgumentNullException("p45");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(p46));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(p45));
             }
+            this.Adapter.UpdateCommand.Parameters[45].Value = ((byte)(p46));
             if ((p47 == null)) {
                 throw new global::System.ArgumentNullException("p47");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(p47));
             }
-            this.Adapter.UpdateCommand.Parameters[47].Value = ((int)(p48));
-            if ((p49 == null)) {
-                throw new global::System.ArgumentNullException("p49");
+            if ((p48 == null)) {
+                throw new global::System.ArgumentNullException("p48");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(p49));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(p48));
             }
+            this.Adapter.UpdateCommand.Parameters[48].Value = ((int)(p49));
             if ((p50 == null)) {
                 throw new global::System.ArgumentNullException("p50");
             }
@@ -24275,20 +24497,20 @@ order by c_lp.display_order";
             else {
                 this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(p51));
             }
-            this.Adapter.UpdateCommand.Parameters[51].Value = ((byte)(p52));
-            if ((p53 == null)) {
-                throw new global::System.ArgumentNullException("p53");
+            if ((p52 == null)) {
+                throw new global::System.ArgumentNullException("p52");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(p53));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(p52));
             }
-            this.Adapter.UpdateCommand.Parameters[53].Value = ((byte)(p54));
-            if ((p55 == null)) {
-                throw new global::System.ArgumentNullException("p55");
+            this.Adapter.UpdateCommand.Parameters[52].Value = ((byte)(p53));
+            if ((p54 == null)) {
+                throw new global::System.ArgumentNullException("p54");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(p55));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((string)(p54));
             }
+            this.Adapter.UpdateCommand.Parameters[54].Value = ((byte)(p55));
             if ((p56 == null)) {
                 throw new global::System.ArgumentNullException("p56");
             }
@@ -24301,19 +24523,40 @@ order by c_lp.display_order";
             else {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(p57));
             }
-            this.Adapter.UpdateCommand.Parameters[57].Value = ((int)(p58));
+            if ((p58 == null)) {
+                throw new global::System.ArgumentNullException("p58");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(p58));
+            }
             this.Adapter.UpdateCommand.Parameters[58].Value = ((int)(p59));
-            this.Adapter.UpdateCommand.Parameters[59].Value = ((byte)(p60));
+            this.Adapter.UpdateCommand.Parameters[59].Value = ((int)(p60));
             this.Adapter.UpdateCommand.Parameters[60].Value = ((byte)(p61));
-            this.Adapter.UpdateCommand.Parameters[61].Value = ((int)(p62));
+            this.Adapter.UpdateCommand.Parameters[61].Value = ((byte)(p62));
             this.Adapter.UpdateCommand.Parameters[62].Value = ((int)(p63));
             this.Adapter.UpdateCommand.Parameters[63].Value = ((int)(p64));
             this.Adapter.UpdateCommand.Parameters[64].Value = ((int)(p65));
             this.Adapter.UpdateCommand.Parameters[65].Value = ((int)(p66));
-            this.Adapter.UpdateCommand.Parameters[66].Value = ((System.DateTime)(p67));
+            this.Adapter.UpdateCommand.Parameters[66].Value = ((int)(p67));
             this.Adapter.UpdateCommand.Parameters[67].Value = ((System.DateTime)(p68));
             this.Adapter.UpdateCommand.Parameters[68].Value = ((System.DateTime)(p69));
-            this.Adapter.UpdateCommand.Parameters[69].Value = ((System.DateTime)(p70));
+            if ((p71.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((System.DateTime)(p71.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
+            }
+            if ((p73.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((System.DateTime)(p73.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[73].Value = ((int)(p74));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
