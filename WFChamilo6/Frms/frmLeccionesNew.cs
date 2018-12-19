@@ -385,5 +385,24 @@ namespace WFChamilo6.Frms
             this.c_lp_item_view_origTableAdapter1.InsertQuery(curso, (MaxId + 1), id_lp_item, id_lp_view, 1, Convert.ToInt32(startime), totaltime, 0, "completed", "", "", "none", "100");
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var resp = MessageBox.Show("¿Está segur@ de que quiere eliminar las lecciones de éste usuario?", "Eliminar Lecciones & Items", MessageBoxButtons.YesNoCancel , MessageBoxIcon.Question);
+            if (resp == DialogResult.Yes)
+            {
+                var resp2 = MessageBox.Show("¿SEGURO DE VERDAD?\n" + "¡ÉSTA OPERACIÓN NO SE PUEDE DESACER!", "Eliminar Lecciones & Items", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                if (resp2 == DialogResult.Yes)
+                {
+                    this.c_lp_item_viewTableAdapter.DeleteQuery(frmMdi.gblUsuario);
+                    this.c_lp_viewTableAdapter1.DeleteQuery(frmMdi.gblUsuario);
+                    MessageBox.Show("Items y Lecciones Eliminados","Eliminar Lecciones & Items", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+
+                }
+
+                
+            }
+              
+        }
     }
 }

@@ -73,6 +73,8 @@
             this.BtnCreaLeccion = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txtTiempoCurso = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.c_lp_item_viewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.chamiloDataSet = new WFChamilo6.chamiloDataSet();
             this.leccionesCursoUsrBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -102,6 +104,7 @@
             this.groupBox2.SuspendLayout();
             this.grpProcesando.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c_lp_item_viewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrBindingSource)).BeginInit();
@@ -432,7 +435,7 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.btnGuardaAuto);
             this.groupBox2.Controls.Add(this.txtSegAuto);
-            this.groupBox2.Location = new System.Drawing.Point(764, 185);
+            this.groupBox2.Location = new System.Drawing.Point(764, 221);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(326, 78);
             this.groupBox2.TabIndex = 36;
@@ -469,7 +472,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(13, 29);
+            this.label12.Location = new System.Drawing.Point(6, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(87, 13);
             this.label12.TabIndex = 40;
@@ -478,7 +481,7 @@
             // txtLeccionId
             // 
             this.txtLeccionId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLeccionId.Location = new System.Drawing.Point(16, 46);
+            this.txtLeccionId.Location = new System.Drawing.Point(9, 32);
             this.txtLeccionId.Name = "txtLeccionId";
             this.txtLeccionId.ReadOnly = true;
             this.txtLeccionId.Size = new System.Drawing.Size(100, 20);
@@ -487,7 +490,7 @@
             // txtItemIId
             // 
             this.txtItemIId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtItemIId.Location = new System.Drawing.Point(122, 46);
+            this.txtItemIId.Location = new System.Drawing.Point(122, 32);
             this.txtItemIId.Name = "txtItemIId";
             this.txtItemIId.ReadOnly = true;
             this.txtItemIId.Size = new System.Drawing.Size(100, 20);
@@ -499,9 +502,9 @@
             this.grpProcesando.Controls.Add(this.txtItemIId);
             this.grpProcesando.Controls.Add(this.label12);
             this.grpProcesando.Controls.Add(this.txtLeccionId);
-            this.grpProcesando.Location = new System.Drawing.Point(763, 282);
+            this.grpProcesando.Location = new System.Drawing.Point(764, 305);
             this.grpProcesando.Name = "grpProcesando";
-            this.grpProcesando.Size = new System.Drawing.Size(326, 86);
+            this.grpProcesando.Size = new System.Drawing.Size(326, 59);
             this.grpProcesando.TabIndex = 43;
             this.grpProcesando.TabStop = false;
             this.grpProcesando.Text = "Procesando";
@@ -509,9 +512,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.progressBar1);
             this.groupBox3.Controls.Add(this.BtnCreaLeccion);
-            this.groupBox3.Location = new System.Drawing.Point(763, 80);
+            this.groupBox3.Location = new System.Drawing.Point(764, 66);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(325, 90);
             this.groupBox3.TabIndex = 45;
@@ -551,6 +555,27 @@
             this.txtTiempoCurso.ReadOnly = true;
             this.txtTiempoCurso.Size = new System.Drawing.Size(100, 20);
             this.txtTiempoCurso.TabIndex = 46;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Location = new System.Drawing.Point(764, 162);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(326, 53);
+            this.groupBox4.TabIndex = 48;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Eliminar Lecciones e Items";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(22, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 28);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Eliminar Lecc.";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // c_lp_item_viewBindingSource
             // 
@@ -712,6 +737,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1100, 655);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtTiempoCurso);
             this.Controls.Add(this.groupBox3);
@@ -744,6 +770,7 @@
             this.grpProcesando.ResumeLayout(false);
             this.grpProcesando.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c_lp_item_viewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leccionesCursoUsrBindingSource)).EndInit();
@@ -822,5 +849,7 @@
         private System.Windows.Forms.Button BtnCreaLeccion;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtTiempoCurso;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button1;
     }
 }

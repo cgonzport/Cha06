@@ -99,7 +99,10 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.c_lp_item_view_origTableAdapter = null;
+            this.tableAdapterManager.c_lp_itemTableAdapter = null;
             this.tableAdapterManager.c_lp_viewTableAdapter = null;
+            this.tableAdapterManager.c_lpTableAdapter = null;
             this.tableAdapterManager.course_rel_userTableAdapter = null;
             this.tableAdapterManager.courseTableAdapter = null;
             this.tableAdapterManager.track_e_course_accessTableAdapter = this.track_e_course_accessTableAdapter;
@@ -383,6 +386,7 @@
             // 
             // btnEjercicios
             // 
+            this.btnEjercicios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEjercicios.Location = new System.Drawing.Point(922, 253);
             this.btnEjercicios.Name = "btnEjercicios";
             this.btnEjercicios.Size = new System.Drawing.Size(121, 36);
