@@ -64,6 +64,7 @@
             this.btnInOut = new System.Windows.Forms.Button();
             this.btnCompleta = new System.Windows.Forms.Button();
             this.btnEjercicios = new System.Windows.Forms.Button();
+            this.btnMensajes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cursoAlumnoBindingSource)).BeginInit();
@@ -105,6 +106,7 @@
             this.tableAdapterManager.c_lpTableAdapter = null;
             this.tableAdapterManager.course_rel_userTableAdapter = null;
             this.tableAdapterManager.courseTableAdapter = null;
+            this.tableAdapterManager.messageTableAdapter = null;
             this.tableAdapterManager.track_e_course_accessTableAdapter = this.track_e_course_accessTableAdapter;
             this.tableAdapterManager.track_e_exercisesTableAdapter = null;
             this.tableAdapterManager.track_e_loginTableAdapter = null;
@@ -354,7 +356,7 @@
             // BtnLeccionesNew
             // 
             this.BtnLeccionesNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnLeccionesNew.Location = new System.Drawing.Point(922, 106);
+            this.BtnLeccionesNew.Location = new System.Drawing.Point(922, 104);
             this.BtnLeccionesNew.Name = "BtnLeccionesNew";
             this.BtnLeccionesNew.Size = new System.Drawing.Size(121, 36);
             this.BtnLeccionesNew.TabIndex = 13;
@@ -365,7 +367,7 @@
             // btnInOut
             // 
             this.btnInOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInOut.Location = new System.Drawing.Point(922, 155);
+            this.btnInOut.Location = new System.Drawing.Point(922, 151);
             this.btnInOut.Name = "btnInOut";
             this.btnInOut.Size = new System.Drawing.Size(121, 36);
             this.btnInOut.TabIndex = 14;
@@ -376,7 +378,7 @@
             // btnCompleta
             // 
             this.btnCompleta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCompleta.Location = new System.Drawing.Point(922, 204);
+            this.btnCompleta.Location = new System.Drawing.Point(922, 198);
             this.btnCompleta.Name = "btnCompleta";
             this.btnCompleta.Size = new System.Drawing.Size(121, 36);
             this.btnCompleta.TabIndex = 15;
@@ -387,7 +389,7 @@
             // btnEjercicios
             // 
             this.btnEjercicios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEjercicios.Location = new System.Drawing.Point(922, 253);
+            this.btnEjercicios.Location = new System.Drawing.Point(922, 245);
             this.btnEjercicios.Name = "btnEjercicios";
             this.btnEjercicios.Size = new System.Drawing.Size(121, 36);
             this.btnEjercicios.TabIndex = 16;
@@ -395,11 +397,23 @@
             this.btnEjercicios.UseVisualStyleBackColor = true;
             this.btnEjercicios.Click += new System.EventHandler(this.btnEjercicios_Click);
             // 
+            // btnMensajes
+            // 
+            this.btnMensajes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMensajes.Location = new System.Drawing.Point(922, 292);
+            this.btnMensajes.Name = "btnMensajes";
+            this.btnMensajes.Size = new System.Drawing.Size(121, 36);
+            this.btnMensajes.TabIndex = 17;
+            this.btnMensajes.Text = "Mensajes";
+            this.btnMensajes.UseVisualStyleBackColor = true;
+            this.btnMensajes.Click += new System.EventHandler(this.btnMensajes_Click);
+            // 
             // frmGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 728);
+            this.Controls.Add(this.btnMensajes);
             this.Controls.Add(this.btnEjercicios);
             this.Controls.Add(this.btnCompleta);
             this.Controls.Add(this.btnInOut);
@@ -465,5 +479,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Button btnEjercicios;
+        private System.Windows.Forms.Button btnMensajes;
     }
 }

@@ -61,3 +61,4 @@ C:\Users\Tecnico\Source\Repos\Cha06\WFChamilo6\obj\Debug\WFChamilo6.Properties.R
 C:\Users\Tecnico\Source\Repos\Cha06\WFChamilo6\obj\Debug\WFChamilo6.csproj.GenerateResource.Cache
 C:\Users\Tecnico\Source\Repos\Cha06\WFChamilo6\obj\Debug\WFChamilo6.exe.manifest
 C:\Users\Tecnico\Source\Repos\Cha06\WFChamilo6\obj\Debug\WFChamilo6.application
+C:\Users\Tecnico\Source\Repos\Cha06\WFChamilo6\obj\Debug\WFChamilo6.Frms.frmMensajes.resources

@@ -946,7 +946,7 @@ b.c_id = a.c_id</CommandText>
               <Mapping SourceColumn="title" DataSetColumn="title" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteQuery">
+              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM c_lp_item_view where lp_view_id in (SELECT id FROM c_lp_view where user_id=@user_id)</CommandText>
@@ -956,7 +956,7 @@ b.c_id = a.c_id</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery">
+              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE c_lp_item_view
@@ -1057,7 +1057,7 @@ iid = @id</CommandText>
               <Mapping SourceColumn="session_id" DataSetColumn="session_id" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteQuery">
+              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM c_lp_view where user_id=@user_id</CommandText>
@@ -1079,7 +1079,7 @@ iid = @id</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQuery">
+              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO `c_lp_view` (`c_id`, `id`, `lp_id`, `user_id`, `view_count`, `last_item`, `progress`, `session_id`) VALUES (@c_id, @id, @lp_id, @user_id, @view_count, @last_item, @progress, @session_id)</CommandText>
@@ -1096,7 +1096,7 @@ iid = @id</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryID" Modifier="Public" Name="ScalarQueryID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQueryID">
+              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryID" Modifier="Public" Name="ScalarQueryID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQueryID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT max(id) FROM c_lp_view</CommandText>
@@ -1840,6 +1840,158 @@ VALUES
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="messageTableAdapter" GeneratorDataComponentClassName="messageTableAdapter" Name="message" UserDataComponentName="messageTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="bdformat.message" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `message` WHERE ((`id` = @p1) AND (`user_sender_id` = @p2) AND (`user_receiver_id` = @p3) AND (`msg_status` = @p4) AND (`send_date` = @p5) AND (`title` = @p6) AND (`content` = @p7) AND (`group_id` = @p8) AND (`parent_id` = @p9) AND ((@p10 = 1 AND `update_date` IS NULL) OR (`update_date` = @p11)) AND ((@p12 = 1 AND `votes` IS NULL) OR (`votes` = @p13)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="Int64" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="user_sender_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p3" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="user_receiver_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@p4" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="msg_status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p5" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="send_date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p6" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="title" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@p7" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="content" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p8" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p9" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="parent_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p10" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="update_date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p11" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="update_date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p12" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="votes" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p13" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="votes" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `message` (`user_sender_id`, `user_receiver_id`, `msg_status`, `send_date`, `title`, `content`, `group_id`, `parent_id`, `update_date`, `votes`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="user_sender_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="user_receiver_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@p3" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="msg_status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p4" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="send_date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p5" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="title" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@p6" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="content" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p7" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p8" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="parent_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p9" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="update_date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p10" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="votes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select * from message</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `message` SET `user_sender_id` = @p1, `user_receiver_id` = @p2, `msg_status` = @p3, `send_date` = @p4, `title` = @p5, `content` = @p6, `group_id` = @p7, `parent_id` = @p8, `update_date` = @p9, `votes` = @p10 WHERE ((`id` = @p11) AND (`user_sender_id` = @p12) AND (`user_receiver_id` = @p13) AND (`msg_status` = @p14) AND (`send_date` = @p15) AND (`title` = @p16) AND (`content` = @p17) AND (`group_id` = @p18) AND (`parent_id` = @p19) AND ((@p20 = 1 AND `update_date` IS NULL) OR (`update_date` = @p21)) AND ((@p22 = 1 AND `votes` IS NULL) OR (`votes` = @p23)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="user_sender_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="user_receiver_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@p3" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="msg_status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p4" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="send_date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p5" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="title" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@p6" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="content" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p7" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p8" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="parent_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p9" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="update_date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p10" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="votes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int64" Direction="Input" ParameterName="@p11" Precision="0" ProviderType="Int64" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p12" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="user_sender_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p13" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="user_receiver_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@p14" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="msg_status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p15" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="send_date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p16" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="title" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@p17" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="content" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p18" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="group_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p19" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="parent_id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p20" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="update_date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p21" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="update_date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p22" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="votes" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p23" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="votes" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="user_sender_id" DataSetColumn="user_sender_id" />
+              <Mapping SourceColumn="user_receiver_id" DataSetColumn="user_receiver_id" />
+              <Mapping SourceColumn="msg_status" DataSetColumn="msg_status" />
+              <Mapping SourceColumn="send_date" DataSetColumn="send_date" />
+              <Mapping SourceColumn="title" DataSetColumn="title" />
+              <Mapping SourceColumn="content" DataSetColumn="content" />
+              <Mapping SourceColumn="group_id" DataSetColumn="group_id" />
+              <Mapping SourceColumn="parent_id" DataSetColumn="parent_id" />
+              <Mapping SourceColumn="update_date" DataSetColumn="update_date" />
+              <Mapping SourceColumn="votes" DataSetColumn="votes" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>UPDATE `message` SET 
+`send_date` = @Fecha,
+`update_date` = @Fecha 
+WHERE `id` = @ID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fecha" ColumnName="send_date" DataSourceName="bdformat.message" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="send_date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id" DataSourceName="bdformat.message" DataTypeServer="bigint(20)" DbType="Int64" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int64" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UserMessageTableAdapter" GeneratorDataComponentClassName="UserMessageTableAdapter" Name="UserMessage" UserDataComponentName="UserMessageTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="db615568225ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+U.user_id as id_Alumno,
+U.firstname as NombreAlumno, 
+U.lastname as ApellidoAlumno, 
+U2.user_id as id_Profesor,
+U2.firstname as NombreProfesor, 
+U2.lastname as ApellidoProfesor, 
+M.* 
+
+FROM 
+`message` as M 
+inner join `user` as U  on M.user_receiver_id = U.user_id
+inner join `user` as U2 on M.user_sender_id = U2.user_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_Alumno" DataSetColumn="id_Alumno" />
+              <Mapping SourceColumn="NombreAlumno" DataSetColumn="NombreAlumno" />
+              <Mapping SourceColumn="ApellidoAlumno" DataSetColumn="ApellidoAlumno" />
+              <Mapping SourceColumn="id_Profesor" DataSetColumn="id_Profesor" />
+              <Mapping SourceColumn="NombreProfesor" DataSetColumn="NombreProfesor" />
+              <Mapping SourceColumn="ApellidoProfesor" DataSetColumn="ApellidoProfesor" />
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="user_sender_id" DataSetColumn="user_sender_id" />
+              <Mapping SourceColumn="user_receiver_id" DataSetColumn="user_receiver_id" />
+              <Mapping SourceColumn="msg_status" DataSetColumn="msg_status" />
+              <Mapping SourceColumn="send_date" DataSetColumn="send_date" />
+              <Mapping SourceColumn="title" DataSetColumn="title" />
+              <Mapping SourceColumn="content" DataSetColumn="content" />
+              <Mapping SourceColumn="group_id" DataSetColumn="group_id" />
+              <Mapping SourceColumn="parent_id" DataSetColumn="parent_id" />
+              <Mapping SourceColumn="update_date" DataSetColumn="update_date" />
+              <Mapping SourceColumn="votes" DataSetColumn="votes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1848,7 +2000,7 @@ VALUES
   <xs:element name="chamiloDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="chamiloDataSet" msprop:Generator_UserDSName="chamiloDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="track_e_login" msprop:Generator_TableClassName="track_e_loginDataTable" msprop:Generator_TableVarName="tabletrack_e_login" msprop:Generator_TablePropName="track_e_login" msprop:Generator_RowDeletingName="track_e_loginRowDeleting" msprop:Generator_RowChangingName="track_e_loginRowChanging" msprop:Generator_RowEvHandlerName="track_e_loginRowChangeEventHandler" msprop:Generator_RowDeletedName="track_e_loginRowDeleted" msprop:Generator_UserTableName="track_e_login" msprop:Generator_RowChangedName="track_e_loginRowChanged" msprop:Generator_RowEvArgName="track_e_loginRowChangeEvent" msprop:Generator_RowClassName="track_e_loginRow">
+        <xs:element name="track_e_login" msprop:Generator_TableClassName="track_e_loginDataTable" msprop:Generator_TableVarName="tabletrack_e_login" msprop:Generator_RowChangedName="track_e_loginRowChanged" msprop:Generator_TablePropName="track_e_login" msprop:Generator_RowDeletingName="track_e_loginRowDeleting" msprop:Generator_RowChangingName="track_e_loginRowChanging" msprop:Generator_RowEvHandlerName="track_e_loginRowChangeEventHandler" msprop:Generator_RowDeletedName="track_e_loginRowDeleted" msprop:Generator_RowClassName="track_e_loginRow" msprop:Generator_UserTableName="track_e_login" msprop:Generator_RowEvArgName="track_e_loginRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="login_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnlogin_id" msprop:Generator_ColumnPropNameInRow="login_id" msprop:Generator_ColumnPropNameInTable="login_idColumn" msprop:Generator_UserColumnName="login_id" type="xs:int" />
@@ -1866,7 +2018,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="course_rel_user" msprop:Generator_TableClassName="course_rel_userDataTable" msprop:Generator_TableVarName="tablecourse_rel_user" msprop:Generator_TablePropName="course_rel_user" msprop:Generator_RowDeletingName="course_rel_userRowDeleting" msprop:Generator_RowChangingName="course_rel_userRowChanging" msprop:Generator_RowEvHandlerName="course_rel_userRowChangeEventHandler" msprop:Generator_RowDeletedName="course_rel_userRowDeleted" msprop:Generator_UserTableName="course_rel_user" msprop:Generator_RowChangedName="course_rel_userRowChanged" msprop:Generator_RowEvArgName="course_rel_userRowChangeEvent" msprop:Generator_RowClassName="course_rel_userRow">
+        <xs:element name="course_rel_user" msprop:Generator_TableClassName="course_rel_userDataTable" msprop:Generator_TableVarName="tablecourse_rel_user" msprop:Generator_RowChangedName="course_rel_userRowChanged" msprop:Generator_TablePropName="course_rel_user" msprop:Generator_RowDeletingName="course_rel_userRowDeleting" msprop:Generator_RowChangingName="course_rel_userRowChanging" msprop:Generator_RowEvHandlerName="course_rel_userRowChangeEventHandler" msprop:Generator_RowDeletedName="course_rel_userRowDeleted" msprop:Generator_RowClassName="course_rel_userRow" msprop:Generator_UserTableName="course_rel_user" msprop:Generator_RowEvArgName="course_rel_userRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -1881,7 +2033,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="course" msprop:Generator_TableClassName="courseDataTable" msprop:Generator_TableVarName="tablecourse" msprop:Generator_TablePropName="course" msprop:Generator_RowDeletingName="courseRowDeleting" msprop:Generator_RowChangingName="courseRowChanging" msprop:Generator_RowEvHandlerName="courseRowChangeEventHandler" msprop:Generator_RowDeletedName="courseRowDeleted" msprop:Generator_UserTableName="course" msprop:Generator_RowChangedName="courseRowChanged" msprop:Generator_RowEvArgName="courseRowChangeEvent" msprop:Generator_RowClassName="courseRow">
+        <xs:element name="course" msprop:Generator_TableClassName="courseDataTable" msprop:Generator_TableVarName="tablecourse" msprop:Generator_RowChangedName="courseRowChanged" msprop:Generator_TablePropName="course" msprop:Generator_RowDeletingName="courseRowDeleting" msprop:Generator_RowChangingName="courseRowChanging" msprop:Generator_RowEvHandlerName="courseRowChangeEventHandler" msprop:Generator_RowDeletedName="courseRowDeleted" msprop:Generator_RowClassName="courseRow" msprop:Generator_UserTableName="course" msprop:Generator_RowEvArgName="courseRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -1973,7 +2125,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CursoAlumno" msprop:Generator_TableClassName="CursoAlumnoDataTable" msprop:Generator_TableVarName="tableCursoAlumno" msprop:Generator_TablePropName="CursoAlumno" msprop:Generator_RowDeletingName="CursoAlumnoRowDeleting" msprop:Generator_RowChangingName="CursoAlumnoRowChanging" msprop:Generator_RowEvHandlerName="CursoAlumnoRowChangeEventHandler" msprop:Generator_RowDeletedName="CursoAlumnoRowDeleted" msprop:Generator_UserTableName="CursoAlumno" msprop:Generator_RowChangedName="CursoAlumnoRowChanged" msprop:Generator_RowEvArgName="CursoAlumnoRowChangeEvent" msprop:Generator_RowClassName="CursoAlumnoRow">
+        <xs:element name="CursoAlumno" msprop:Generator_TableClassName="CursoAlumnoDataTable" msprop:Generator_TableVarName="tableCursoAlumno" msprop:Generator_RowChangedName="CursoAlumnoRowChanged" msprop:Generator_TablePropName="CursoAlumno" msprop:Generator_RowDeletingName="CursoAlumnoRowDeleting" msprop:Generator_RowChangingName="CursoAlumnoRowChanging" msprop:Generator_RowEvHandlerName="CursoAlumnoRowChangeEventHandler" msprop:Generator_RowDeletedName="CursoAlumnoRowDeleted" msprop:Generator_RowClassName="CursoAlumnoRow" msprop:Generator_UserTableName="CursoAlumno" msprop:Generator_RowEvArgName="CursoAlumnoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -2002,7 +2154,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_UserTableName="user" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_RowEvArgName="userRowChangeEvent" msprop:Generator_RowClassName="userRow">
+        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_RowClassName="userRow" msprop:Generator_UserTableName="user" msprop:Generator_RowEvArgName="userRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -2143,7 +2295,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="track_e_course_access" msprop:Generator_TableClassName="track_e_course_accessDataTable" msprop:Generator_TableVarName="tabletrack_e_course_access" msprop:Generator_RowChangedName="track_e_course_accessRowChanged" msprop:Generator_TablePropName="track_e_course_access" msprop:Generator_RowDeletingName="track_e_course_accessRowDeleting" msprop:Generator_RowChangingName="track_e_course_accessRowChanging" msprop:Generator_RowEvHandlerName="track_e_course_accessRowChangeEventHandler" msprop:Generator_RowDeletedName="track_e_course_accessRowDeleted" msprop:Generator_RowClassName="track_e_course_accessRow" msprop:Generator_UserTableName="track_e_course_access" msprop:Generator_RowEvArgName="track_e_course_accessRowChangeEvent">
+        <xs:element name="track_e_course_access" msprop:Generator_TableClassName="track_e_course_accessDataTable" msprop:Generator_TableVarName="tabletrack_e_course_access" msprop:Generator_TablePropName="track_e_course_access" msprop:Generator_RowDeletingName="track_e_course_accessRowDeleting" msprop:Generator_RowChangingName="track_e_course_accessRowChanging" msprop:Generator_RowEvHandlerName="track_e_course_accessRowChangeEventHandler" msprop:Generator_RowDeletedName="track_e_course_accessRowDeleted" msprop:Generator_UserTableName="track_e_course_access" msprop:Generator_RowChangedName="track_e_course_accessRowChanged" msprop:Generator_RowEvArgName="track_e_course_accessRowChangeEvent" msprop:Generator_RowClassName="track_e_course_accessRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="course_access_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columncourse_access_id" msprop:Generator_ColumnPropNameInRow="course_access_id" msprop:Generator_ColumnPropNameInTable="course_access_idColumn" msprop:Generator_UserColumnName="course_access_id" type="xs:int" />
@@ -2163,7 +2315,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="track_e_exercises" msprop:Generator_TableClassName="track_e_exercisesDataTable" msprop:Generator_TableVarName="tabletrack_e_exercises" msprop:Generator_RowChangedName="track_e_exercisesRowChanged" msprop:Generator_TablePropName="track_e_exercises" msprop:Generator_RowDeletingName="track_e_exercisesRowDeleting" msprop:Generator_RowChangingName="track_e_exercisesRowChanging" msprop:Generator_RowEvHandlerName="track_e_exercisesRowChangeEventHandler" msprop:Generator_RowDeletedName="track_e_exercisesRowDeleted" msprop:Generator_RowClassName="track_e_exercisesRow" msprop:Generator_UserTableName="track_e_exercises" msprop:Generator_RowEvArgName="track_e_exercisesRowChangeEvent">
+        <xs:element name="track_e_exercises" msprop:Generator_TableClassName="track_e_exercisesDataTable" msprop:Generator_TableVarName="tabletrack_e_exercises" msprop:Generator_TablePropName="track_e_exercises" msprop:Generator_RowDeletingName="track_e_exercisesRowDeleting" msprop:Generator_RowChangingName="track_e_exercisesRowChanging" msprop:Generator_RowEvHandlerName="track_e_exercisesRowChangeEventHandler" msprop:Generator_RowDeletedName="track_e_exercisesRowDeleted" msprop:Generator_UserTableName="track_e_exercises" msprop:Generator_RowChangedName="track_e_exercisesRowChanged" msprop:Generator_RowEvArgName="track_e_exercisesRowChangeEvent" msprop:Generator_RowClassName="track_e_exercisesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="exe_id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnexe_id" msprop:Generator_ColumnPropNameInRow="exe_id" msprop:Generator_ColumnPropNameInTable="exe_idColumn" msprop:Generator_UserColumnName="exe_id" type="xs:int" />
@@ -2200,7 +2352,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="c_lp_item_view" msprop:Generator_TableClassName="c_lp_item_viewDataTable" msprop:Generator_TableVarName="tablec_lp_item_view" msprop:Generator_RowChangedName="c_lp_item_viewRowChanged" msprop:Generator_TablePropName="c_lp_item_view" msprop:Generator_RowDeletingName="c_lp_item_viewRowDeleting" msprop:Generator_RowChangingName="c_lp_item_viewRowChanging" msprop:Generator_RowEvHandlerName="c_lp_item_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_item_viewRowDeleted" msprop:Generator_RowClassName="c_lp_item_viewRow" msprop:Generator_UserTableName="c_lp_item_view" msprop:Generator_RowEvArgName="c_lp_item_viewRowChangeEvent">
+        <xs:element name="c_lp_item_view" msprop:Generator_TableClassName="c_lp_item_viewDataTable" msprop:Generator_TableVarName="tablec_lp_item_view" msprop:Generator_TablePropName="c_lp_item_view" msprop:Generator_RowDeletingName="c_lp_item_viewRowDeleting" msprop:Generator_RowChangingName="c_lp_item_viewRowChanging" msprop:Generator_RowEvHandlerName="c_lp_item_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_item_viewRowDeleted" msprop:Generator_UserTableName="c_lp_item_view" msprop:Generator_RowChangedName="c_lp_item_viewRowChanged" msprop:Generator_RowEvArgName="c_lp_item_viewRowChangeEvent" msprop:Generator_RowClassName="c_lp_item_viewRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
@@ -2225,7 +2377,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="c_lp_view" msprop:Generator_TableClassName="c_lp_viewDataTable" msprop:Generator_TableVarName="tablec_lp_view" msprop:Generator_RowChangedName="c_lp_viewRowChanged" msprop:Generator_TablePropName="c_lp_view" msprop:Generator_RowDeletingName="c_lp_viewRowDeleting" msprop:Generator_RowChangingName="c_lp_viewRowChanging" msprop:Generator_RowEvHandlerName="c_lp_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_viewRowDeleted" msprop:Generator_RowClassName="c_lp_viewRow" msprop:Generator_UserTableName="c_lp_view" msprop:Generator_RowEvArgName="c_lp_viewRowChangeEvent">
+        <xs:element name="c_lp_view" msprop:Generator_TableClassName="c_lp_viewDataTable" msprop:Generator_TableVarName="tablec_lp_view" msprop:Generator_TablePropName="c_lp_view" msprop:Generator_RowDeletingName="c_lp_viewRowDeleting" msprop:Generator_RowChangingName="c_lp_viewRowChanging" msprop:Generator_RowEvHandlerName="c_lp_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_viewRowDeleted" msprop:Generator_UserTableName="c_lp_view" msprop:Generator_RowChangedName="c_lp_viewRowChanged" msprop:Generator_RowEvArgName="c_lp_viewRowChangeEvent" msprop:Generator_RowClassName="c_lp_viewRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="iid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
@@ -2240,7 +2392,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LeccionesCursoUsr" msprop:Generator_TableClassName="LeccionesCursoUsrDataTable" msprop:Generator_TableVarName="tableLeccionesCursoUsr" msprop:Generator_RowChangedName="LeccionesCursoUsrRowChanged" msprop:Generator_TablePropName="LeccionesCursoUsr" msprop:Generator_RowDeletingName="LeccionesCursoUsrRowDeleting" msprop:Generator_RowChangingName="LeccionesCursoUsrRowChanging" msprop:Generator_RowEvHandlerName="LeccionesCursoUsrRowChangeEventHandler" msprop:Generator_RowDeletedName="LeccionesCursoUsrRowDeleted" msprop:Generator_RowClassName="LeccionesCursoUsrRow" msprop:Generator_UserTableName="LeccionesCursoUsr" msprop:Generator_RowEvArgName="LeccionesCursoUsrRowChangeEvent">
+        <xs:element name="LeccionesCursoUsr" msprop:Generator_TableClassName="LeccionesCursoUsrDataTable" msprop:Generator_TableVarName="tableLeccionesCursoUsr" msprop:Generator_TablePropName="LeccionesCursoUsr" msprop:Generator_RowDeletingName="LeccionesCursoUsrRowDeleting" msprop:Generator_RowChangingName="LeccionesCursoUsrRowChanging" msprop:Generator_RowEvHandlerName="LeccionesCursoUsrRowChangeEventHandler" msprop:Generator_RowDeletedName="LeccionesCursoUsrRowDeleted" msprop:Generator_UserTableName="LeccionesCursoUsr" msprop:Generator_RowChangedName="LeccionesCursoUsrRowChanged" msprop:Generator_RowEvArgName="LeccionesCursoUsrRowChangeEvent" msprop:Generator_RowClassName="LeccionesCursoUsrRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="iid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
@@ -2272,7 +2424,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="c_lp_item_view_total" msprop:Generator_TableClassName="c_lp_item_view_totalDataTable" msprop:Generator_TableVarName="tablec_lp_item_view_total" msprop:Generator_RowChangedName="c_lp_item_view_totalRowChanged" msprop:Generator_TablePropName="c_lp_item_view_total" msprop:Generator_RowDeletingName="c_lp_item_view_totalRowDeleting" msprop:Generator_RowChangingName="c_lp_item_view_totalRowChanging" msprop:Generator_RowEvHandlerName="c_lp_item_view_totalRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_item_view_totalRowDeleted" msprop:Generator_RowClassName="c_lp_item_view_totalRow" msprop:Generator_UserTableName="c_lp_item_view_total" msprop:Generator_RowEvArgName="c_lp_item_view_totalRowChangeEvent">
+        <xs:element name="c_lp_item_view_total" msprop:Generator_TableClassName="c_lp_item_view_totalDataTable" msprop:Generator_TableVarName="tablec_lp_item_view_total" msprop:Generator_TablePropName="c_lp_item_view_total" msprop:Generator_RowDeletingName="c_lp_item_view_totalRowDeleting" msprop:Generator_RowChangingName="c_lp_item_view_totalRowChanging" msprop:Generator_RowEvHandlerName="c_lp_item_view_totalRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_item_view_totalRowDeleted" msprop:Generator_UserTableName="c_lp_item_view_total" msprop:Generator_RowChangedName="c_lp_item_view_totalRowChanged" msprop:Generator_RowEvArgName="c_lp_item_view_totalRowChangeEvent" msprop:Generator_RowClassName="c_lp_item_view_totalRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="iid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
@@ -2306,7 +2458,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="c_lp" msprop:Generator_TableClassName="c_lpDataTable" msprop:Generator_TableVarName="tablec_lp" msprop:Generator_RowChangedName="c_lpRowChanged" msprop:Generator_TablePropName="c_lp" msprop:Generator_RowDeletingName="c_lpRowDeleting" msprop:Generator_RowChangingName="c_lpRowChanging" msprop:Generator_RowEvHandlerName="c_lpRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lpRowDeleted" msprop:Generator_RowClassName="c_lpRow" msprop:Generator_UserTableName="c_lp" msprop:Generator_RowEvArgName="c_lpRowChangeEvent">
+        <xs:element name="c_lp" msprop:Generator_TableClassName="c_lpDataTable" msprop:Generator_TableVarName="tablec_lp" msprop:Generator_TablePropName="c_lp" msprop:Generator_RowDeletingName="c_lpRowDeleting" msprop:Generator_RowChangingName="c_lpRowChanging" msprop:Generator_RowEvHandlerName="c_lpRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lpRowDeleted" msprop:Generator_UserTableName="c_lp" msprop:Generator_RowChangedName="c_lpRowChanged" msprop:Generator_RowEvArgName="c_lpRowChangeEvent" msprop:Generator_RowClassName="c_lpRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="iid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
@@ -2389,7 +2541,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="c_lp_item" msprop:Generator_TableClassName="c_lp_itemDataTable" msprop:Generator_TableVarName="tablec_lp_item" msprop:Generator_RowChangedName="c_lp_itemRowChanged" msprop:Generator_TablePropName="c_lp_item" msprop:Generator_RowDeletingName="c_lp_itemRowDeleting" msprop:Generator_RowChangingName="c_lp_itemRowChanging" msprop:Generator_RowEvHandlerName="c_lp_itemRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_itemRowDeleted" msprop:Generator_RowClassName="c_lp_itemRow" msprop:Generator_UserTableName="c_lp_item" msprop:Generator_RowEvArgName="c_lp_itemRowChangeEvent">
+        <xs:element name="c_lp_item" msprop:Generator_TableClassName="c_lp_itemDataTable" msprop:Generator_TableVarName="tablec_lp_item" msprop:Generator_TablePropName="c_lp_item" msprop:Generator_RowDeletingName="c_lp_itemRowDeleting" msprop:Generator_RowChangingName="c_lp_itemRowChanging" msprop:Generator_RowEvHandlerName="c_lp_itemRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_itemRowDeleted" msprop:Generator_UserTableName="c_lp_item" msprop:Generator_RowChangedName="c_lp_itemRowChanged" msprop:Generator_RowEvArgName="c_lp_itemRowChangeEvent" msprop:Generator_RowClassName="c_lp_itemRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="iid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
@@ -2450,7 +2602,7 @@ VALUES
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="c_lp_item_view_orig" msprop:Generator_TableClassName="c_lp_item_view_origDataTable" msprop:Generator_TableVarName="tablec_lp_item_view_orig" msprop:Generator_RowChangedName="c_lp_item_view_origRowChanged" msprop:Generator_TablePropName="c_lp_item_view_orig" msprop:Generator_RowDeletingName="c_lp_item_view_origRowDeleting" msprop:Generator_RowChangingName="c_lp_item_view_origRowChanging" msprop:Generator_RowEvHandlerName="c_lp_item_view_origRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_item_view_origRowDeleted" msprop:Generator_RowClassName="c_lp_item_view_origRow" msprop:Generator_UserTableName="c_lp_item_view_orig" msprop:Generator_RowEvArgName="c_lp_item_view_origRowChangeEvent">
+        <xs:element name="c_lp_item_view_orig" msprop:Generator_TableClassName="c_lp_item_view_origDataTable" msprop:Generator_TableVarName="tablec_lp_item_view_orig" msprop:Generator_TablePropName="c_lp_item_view_orig" msprop:Generator_RowDeletingName="c_lp_item_view_origRowDeleting" msprop:Generator_RowChangingName="c_lp_item_view_origRowChanging" msprop:Generator_RowEvHandlerName="c_lp_item_view_origRowChangeEventHandler" msprop:Generator_RowDeletedName="c_lp_item_view_origRowDeleted" msprop:Generator_UserTableName="c_lp_item_view_orig" msprop:Generator_RowChangedName="c_lp_item_view_origRowChanged" msprop:Generator_RowEvArgName="c_lp_item_view_origRowChangeEvent" msprop:Generator_RowClassName="c_lp_item_view_origRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="iid" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columniid" msprop:Generator_ColumnPropNameInRow="iid" msprop:Generator_ColumnPropNameInTable="iidColumn" msprop:Generator_UserColumnName="iid" type="xs:int" />
@@ -2485,6 +2637,82 @@ VALUES
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="message" msprop:Generator_TableClassName="messageDataTable" msprop:Generator_TableVarName="tablemessage" msprop:Generator_TablePropName="message" msprop:Generator_RowDeletingName="messageRowDeleting" msprop:Generator_RowChangingName="messageRowChanging" msprop:Generator_RowEvHandlerName="messageRowChangeEventHandler" msprop:Generator_RowDeletedName="messageRowDeleted" msprop:Generator_UserTableName="message" msprop:Generator_RowChangedName="messageRowChanged" msprop:Generator_RowEvArgName="messageRowChangeEvent" msprop:Generator_RowClassName="messageRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" />
+              <xs:element name="user_sender_id" msprop:Generator_ColumnVarNameInTable="columnuser_sender_id" msprop:Generator_ColumnPropNameInRow="user_sender_id" msprop:Generator_ColumnPropNameInTable="user_sender_idColumn" msprop:Generator_UserColumnName="user_sender_id" type="xs:int" />
+              <xs:element name="user_receiver_id" msprop:Generator_ColumnVarNameInTable="columnuser_receiver_id" msprop:Generator_ColumnPropNameInRow="user_receiver_id" msprop:Generator_ColumnPropNameInTable="user_receiver_idColumn" msprop:Generator_UserColumnName="user_receiver_id" type="xs:int" />
+              <xs:element name="msg_status" msprop:Generator_ColumnVarNameInTable="columnmsg_status" msprop:Generator_ColumnPropNameInRow="msg_status" msprop:Generator_ColumnPropNameInTable="msg_statusColumn" msprop:Generator_UserColumnName="msg_status" type="xs:boolean" />
+              <xs:element name="send_date" msprop:Generator_ColumnVarNameInTable="columnsend_date" msprop:Generator_ColumnPropNameInRow="send_date" msprop:Generator_ColumnPropNameInTable="send_dateColumn" msprop:Generator_UserColumnName="send_date" type="xs:dateTime" />
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="content" msprop:Generator_ColumnVarNameInTable="columncontent" msprop:Generator_ColumnPropNameInRow="content" msprop:Generator_ColumnPropNameInTable="contentColumn" msprop:Generator_UserColumnName="content" type="xs:string" />
+              <xs:element name="group_id" msprop:Generator_ColumnVarNameInTable="columngroup_id" msprop:Generator_ColumnPropNameInRow="group_id" msprop:Generator_ColumnPropNameInTable="group_idColumn" msprop:Generator_UserColumnName="group_id" type="xs:int" />
+              <xs:element name="parent_id" msprop:Generator_ColumnVarNameInTable="columnparent_id" msprop:Generator_ColumnPropNameInRow="parent_id" msprop:Generator_ColumnPropNameInTable="parent_idColumn" msprop:Generator_UserColumnName="parent_id" type="xs:int" />
+              <xs:element name="update_date" msprop:Generator_ColumnVarNameInTable="columnupdate_date" msprop:Generator_ColumnPropNameInRow="update_date" msprop:Generator_ColumnPropNameInTable="update_dateColumn" msprop:Generator_UserColumnName="update_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="votes" msprop:Generator_ColumnVarNameInTable="columnvotes" msprop:Generator_ColumnPropNameInRow="votes" msprop:Generator_ColumnPropNameInTable="votesColumn" msprop:Generator_UserColumnName="votes" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UserMessage" msprop:Generator_TableClassName="UserMessageDataTable" msprop:Generator_TableVarName="tableUserMessage" msprop:Generator_TablePropName="UserMessage" msprop:Generator_RowDeletingName="UserMessageRowDeleting" msprop:Generator_RowChangingName="UserMessageRowChanging" msprop:Generator_RowEvHandlerName="UserMessageRowChangeEventHandler" msprop:Generator_RowDeletedName="UserMessageRowDeleted" msprop:Generator_UserTableName="UserMessage" msprop:Generator_RowChangedName="UserMessageRowChanged" msprop:Generator_RowEvArgName="UserMessageRowChangeEvent" msprop:Generator_RowClassName="UserMessageRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_Alumno" msprop:Generator_ColumnVarNameInTable="columnid_Alumno" msprop:Generator_ColumnPropNameInRow="id_Alumno" msprop:Generator_ColumnPropNameInTable="id_AlumnoColumn" msprop:Generator_UserColumnName="id_Alumno" type="xs:int" minOccurs="0" />
+              <xs:element name="NombreAlumno" msprop:Generator_ColumnVarNameInTable="columnNombreAlumno" msprop:Generator_ColumnPropNameInRow="NombreAlumno" msprop:Generator_ColumnPropNameInTable="NombreAlumnoColumn" msprop:Generator_UserColumnName="NombreAlumno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApellidoAlumno" msprop:Generator_ColumnVarNameInTable="columnApellidoAlumno" msprop:Generator_ColumnPropNameInRow="ApellidoAlumno" msprop:Generator_ColumnPropNameInTable="ApellidoAlumnoColumn" msprop:Generator_UserColumnName="ApellidoAlumno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_Profesor" msprop:Generator_ColumnVarNameInTable="columnid_Profesor" msprop:Generator_ColumnPropNameInRow="id_Profesor" msprop:Generator_ColumnPropNameInTable="id_ProfesorColumn" msprop:Generator_UserColumnName="id_Profesor" type="xs:int" minOccurs="0" />
+              <xs:element name="NombreProfesor" msprop:Generator_ColumnVarNameInTable="columnNombreProfesor" msprop:Generator_ColumnPropNameInRow="NombreProfesor" msprop:Generator_ColumnPropNameInTable="NombreProfesorColumn" msprop:Generator_UserColumnName="NombreProfesor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ApellidoProfesor" msprop:Generator_ColumnVarNameInTable="columnApellidoProfesor" msprop:Generator_ColumnPropNameInRow="ApellidoProfesor" msprop:Generator_ColumnPropNameInTable="ApellidoProfesorColumn" msprop:Generator_UserColumnName="ApellidoProfesor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:long" />
+              <xs:element name="user_sender_id" msprop:Generator_ColumnVarNameInTable="columnuser_sender_id" msprop:Generator_ColumnPropNameInRow="user_sender_id" msprop:Generator_ColumnPropNameInTable="user_sender_idColumn" msprop:Generator_UserColumnName="user_sender_id" type="xs:int" />
+              <xs:element name="user_receiver_id" msprop:Generator_ColumnVarNameInTable="columnuser_receiver_id" msprop:Generator_ColumnPropNameInRow="user_receiver_id" msprop:Generator_ColumnPropNameInTable="user_receiver_idColumn" msprop:Generator_UserColumnName="user_receiver_id" type="xs:int" />
+              <xs:element name="msg_status" msprop:Generator_ColumnVarNameInTable="columnmsg_status" msprop:Generator_ColumnPropNameInRow="msg_status" msprop:Generator_ColumnPropNameInTable="msg_statusColumn" msprop:Generator_UserColumnName="msg_status" type="xs:boolean" />
+              <xs:element name="send_date" msprop:Generator_ColumnVarNameInTable="columnsend_date" msprop:Generator_ColumnPropNameInRow="send_date" msprop:Generator_ColumnPropNameInTable="send_dateColumn" msprop:Generator_UserColumnName="send_date" type="xs:dateTime" />
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="content" msprop:Generator_ColumnVarNameInTable="columncontent" msprop:Generator_ColumnPropNameInRow="content" msprop:Generator_ColumnPropNameInTable="contentColumn" msprop:Generator_UserColumnName="content" type="xs:string" />
+              <xs:element name="group_id" msprop:Generator_ColumnVarNameInTable="columngroup_id" msprop:Generator_ColumnPropNameInRow="group_id" msprop:Generator_ColumnPropNameInTable="group_idColumn" msprop:Generator_UserColumnName="group_id" type="xs:int" />
+              <xs:element name="parent_id" msprop:Generator_ColumnVarNameInTable="columnparent_id" msprop:Generator_ColumnPropNameInRow="parent_id" msprop:Generator_ColumnPropNameInTable="parent_idColumn" msprop:Generator_UserColumnName="parent_id" type="xs:int" />
+              <xs:element name="update_date" msprop:Generator_ColumnVarNameInTable="columnupdate_date" msprop:Generator_ColumnPropNameInRow="update_date" msprop:Generator_ColumnPropNameInTable="update_dateColumn" msprop:Generator_UserColumnName="update_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="votes" msprop:Generator_ColumnVarNameInTable="columnvotes" msprop:Generator_ColumnPropNameInRow="votes" msprop:Generator_ColumnPropNameInTable="votesColumn" msprop:Generator_UserColumnName="votes" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -2542,12 +2770,20 @@ VALUES
       <xs:selector xpath=".//mstns:c_lp_item_view_orig" />
       <xs:field xpath="mstns:iid" />
     </xs:unique>
+    <xs:unique name="message_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:message" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="UserMessage_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:UserMessage" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_92CFD9FE91D79BD3" msdata:parent="course" msdata:child="course_rel_user" msdata:parentkey="id" msdata:childkey="c_id" msprop:Generator_UserChildTable="course_rel_user" msprop:Generator_ChildPropName="Getcourse_rel_userRows" msprop:Generator_UserRelationName="FK_92CFD9FE91D79BD3" msprop:Generator_RelationVarName="relationFK_92CFD9FE91D79BD3" msprop:Generator_UserParentTable="course" msprop:Generator_ParentPropName="courseRow" />
-      <msdata:Relationship name="FK_92CFD9FE91D79BD31" msdata:parent="course" msdata:child="CursoAlumno" msdata:parentkey="id" msdata:childkey="c_id" msprop:Generator_UserChildTable="CursoAlumno" msprop:Generator_ChildPropName="GetCursoAlumnoRows" msprop:Generator_UserRelationName="FK_92CFD9FE91D79BD31" msprop:Generator_ParentPropName="courseRow" msprop:Generator_RelationVarName="relationFK_92CFD9FE91D79BD31" msprop:Generator_UserParentTable="course" />
-      <msdata:Relationship name="FK_92CFD9FEA76ED395" msdata:parent="user" msdata:child="course_rel_user" msdata:parentkey="id" msdata:childkey="user_id" msprop:Generator_UserChildTable="course_rel_user" msprop:Generator_ChildPropName="Getcourse_rel_userRows" msprop:Generator_UserRelationName="FK_92CFD9FEA76ED395" msprop:Generator_RelationVarName="relationFK_92CFD9FEA76ED395" msprop:Generator_UserParentTable="user" msprop:Generator_ParentPropName="userRow" />
+      <msdata:Relationship name="FK_92CFD9FE91D79BD3" msdata:parent="course" msdata:child="course_rel_user" msdata:parentkey="id" msdata:childkey="c_id" msprop:Generator_UserChildTable="course_rel_user" msprop:Generator_ChildPropName="Getcourse_rel_userRows" msprop:Generator_UserRelationName="FK_92CFD9FE91D79BD3" msprop:Generator_ParentPropName="courseRow" msprop:Generator_RelationVarName="relationFK_92CFD9FE91D79BD3" msprop:Generator_UserParentTable="course" />
+      <msdata:Relationship name="FK_92CFD9FE91D79BD31" msdata:parent="course" msdata:child="CursoAlumno" msdata:parentkey="id" msdata:childkey="c_id" msprop:Generator_UserChildTable="CursoAlumno" msprop:Generator_ChildPropName="GetCursoAlumnoRows" msprop:Generator_UserRelationName="FK_92CFD9FE91D79BD31" msprop:Generator_RelationVarName="relationFK_92CFD9FE91D79BD31" msprop:Generator_UserParentTable="course" msprop:Generator_ParentPropName="courseRow" />
+      <msdata:Relationship name="FK_92CFD9FEA76ED395" msdata:parent="user" msdata:child="course_rel_user" msdata:parentkey="id" msdata:childkey="user_id" msprop:Generator_UserChildTable="course_rel_user" msprop:Generator_ChildPropName="Getcourse_rel_userRows" msprop:Generator_UserRelationName="FK_92CFD9FEA76ED395" msprop:Generator_ParentPropName="userRow" msprop:Generator_RelationVarName="relationFK_92CFD9FEA76ED395" msprop:Generator_UserParentTable="user" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -18,6 +18,7 @@ namespace WFChamilo6.Frms
         Frms.frmEntradaSalida frmInOut;
         Frms.frmCompletaItem frmCompletaItem;
         Frms.frmEjercicios frmEjercicios;
+        Frms.frmMensajes frmMensajes;
 
         public frmGeneral()
         {
@@ -161,6 +162,18 @@ namespace WFChamilo6.Frms
             frmEjercicios = new frmEjercicios();
             frmEjercicios.MdiParent = this.MdiParent;
             frmEjercicios.Show();
+        }
+
+        private void btnMensajes_Click(object sender, EventArgs e)
+        {
+            frmMdi.gblCurso = Convert.ToInt32(cursoAlumnoDataGridView.SelectedCells[2].Value);
+            frmMdi.gblUsuario = Convert.ToInt32(txtIdUsuario.Text);
+            frmMdi.gblFirstName = txtNombre.Text.ToString();
+            frmMdi.gblLastName = txtApellido.Text.ToString();
+            frmMensajes = new frmMensajes();
+            frmMensajes.MdiParent = this.MdiParent;
+            frmMensajes.Show();
+
         }
     }
 }
