@@ -46,34 +46,31 @@ namespace WFChamilo6.Frms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Pregunta","¿Desea Modificar todos los Registros Seleccionados?", MessageBoxButtons.YesNo,
+            var result = MessageBox.Show("¿Desea Modificar todos los Registros Seleccionados?", "PREGUNTA", MessageBoxButtons.YesNo,
                                  MessageBoxIcon.Question);
             if(result == DialogResult.Yes)
             {
                 Cursor.Current = Cursors.WaitCursor;
 
                 DataGridViewSelectedRowCollection Seleccionados = userMessageDataGridView.SelectedRows;
-
-                foreach (DataGridViewRow item in Seleccionados)
+                try
                 {
+                    foreach (DataGridViewRow item in Seleccionados)
+                    {
+                        messageTableAdapter.UpdateQuery(Convert.ToDateTime(txtNuevaFecha.Text.ToString()), Convert.ToInt32(item.Cells[0].Value));
+                    }  // FINAL DEL FOR
 
-                   // try
-                    //{
-                        //TiempoSegundos = (Convert.ToDouble(txtSegAuto.Text) + r.Next(1, Convert.ToInt32(txtRandom.Text)));
-                        //FechaUnix = FechaUnix + TiempoSegundos;
-                        //c_lp_item_view_totalTableAdapter.UpdateQuery(Convert.ToInt32(item.Cells[0].Value), Convert.ToInt32(FechaUnix), Convert.ToInt32(TiempoSegundos));
-                        messageTableAdapter.UpdateQuery(Convert.ToDateTime(txtNuevaFecha.Text.ToString()) ,Convert.ToInt32(item.Cells[0].Value));
-                        MessageBox.Show("Guardando a " + item.Cells[0].Value);
-                        //HAY QUE REVISAR PORQUÉ NO ESTÁ FUNCIONANDO ESTO.. O QUE ES LO QUE ESTA HACIENDO
-                    //}
-                    //catch { }
-                }  // FINAL DEL FOR
+                    this.messageTableAdapter.Fill(this.chamiloDataSet.message);
+                    this.userMessageTableAdapter.Fill(this.chamiloDataSet.UserMessage);
+                    this.userMessageBindingSource.Filter = "id_Alumno = " + frmMdi.gblUsuario;
+                    this.messageBindingSource.Filter = "user_receiver_id = " + frmMdi.gblUsuario;
+                    MessageBox.Show("GUARDADO", "Datos Guardados Correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Hubo un error al guardar. Posiblemente la fecha/hora sea Incorrecta", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-                this.messageTableAdapter.Fill(this.chamiloDataSet.message);
-                this.userMessageTableAdapter.Fill(this.chamiloDataSet.UserMessage);
-                this.userMessageBindingSource.Filter = "id_Alumno = " + frmMdi.gblUsuario;
-                this.messageBindingSource.Filter = "user_receiver_id = " + frmMdi.gblUsuario;
-                MessageBox.Show("TODO GUARDADO");
             }
 
         }

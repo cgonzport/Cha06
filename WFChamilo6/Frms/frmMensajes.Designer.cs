@@ -30,24 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.userMessageDataGridView = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtIdMensaje = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNuevaFecha = new System.Windows.Forms.TextBox();
-            this.messageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chamiloDataSet = new WFChamilo6.chamiloDataSet();
             this.userMessageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.chamiloDataSet = new WFChamilo6.chamiloDataSet();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,13 +49,22 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.messageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userMessageTableAdapter = new WFChamilo6.chamiloDataSetTableAdapters.UserMessageTableAdapter();
             this.tableAdapterManager = new WFChamilo6.chamiloDataSetTableAdapters.TableAdapterManager();
             this.messageTableAdapter = new WFChamilo6.chamiloDataSetTableAdapters.messageTableAdapter();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdMensaje = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.userMessageDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.messageBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userMessageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.messageBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // userMessageDataGridView
@@ -84,54 +86,12 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn15});
             this.userMessageDataGridView.DataSource = this.userMessageBindingSource;
-            this.userMessageDataGridView.Location = new System.Drawing.Point(31, 58);
+            this.userMessageDataGridView.Location = new System.Drawing.Point(31, 71);
             this.userMessageDataGridView.Name = "userMessageDataGridView";
             this.userMessageDataGridView.ReadOnly = true;
             this.userMessageDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.userMessageDataGridView.Size = new System.Drawing.Size(1149, 307);
             this.userMessageDataGridView.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(251, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Apellido";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(98, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Nombre";
-            // 
-            // txtIdUsuario
-            // 
-            this.txtIdUsuario.Location = new System.Drawing.Point(31, 28);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.ReadOnly = true;
-            this.txtIdUsuario.Size = new System.Drawing.Size(54, 20);
-            this.txtIdUsuario.TabIndex = 12;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.Location = new System.Drawing.Point(254, 28);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.ReadOnly = true;
-            this.txtLastName.Size = new System.Drawing.Size(155, 20);
-            this.txtLastName.TabIndex = 11;
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Location = new System.Drawing.Point(101, 28);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.ReadOnly = true;
-            this.txtFirstName.Size = new System.Drawing.Size(137, 20);
-            this.txtFirstName.TabIndex = 10;
             // 
             // label1
             // 
@@ -180,16 +140,6 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtIdMensaje
-            // 
-            this.txtIdMensaje.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userMessageBindingSource, "id", true));
-            this.txtIdMensaje.Location = new System.Drawing.Point(424, 28);
-            this.txtIdMensaje.Name = "txtIdMensaje";
-            this.txtIdMensaje.Size = new System.Drawing.Size(112, 20);
-            this.txtIdMensaje.TabIndex = 21;
-            this.txtIdMensaje.Visible = false;
-            this.txtIdMensaje.TextChanged += new System.EventHandler(this.txtIdMensaje_TextChanged);
-            // 
             // txtFecha
             // 
             this.txtFecha.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userMessageBindingSource, "send_date", true));
@@ -224,20 +174,15 @@
             this.txtNuevaFecha.Size = new System.Drawing.Size(240, 20);
             this.txtNuevaFecha.TabIndex = 24;
             // 
-            // messageBindingSource
+            // userMessageBindingSource
             // 
-            this.messageBindingSource.DataMember = "message";
-            this.messageBindingSource.DataSource = this.chamiloDataSet;
+            this.userMessageBindingSource.DataMember = "UserMessage";
+            this.userMessageBindingSource.DataSource = this.chamiloDataSet;
             // 
             // chamiloDataSet
             // 
             this.chamiloDataSet.DataSetName = "chamiloDataSet";
             this.chamiloDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // userMessageBindingSource
-            // 
-            this.userMessageBindingSource.DataMember = "UserMessage";
-            this.userMessageBindingSource.DataSource = this.chamiloDataSet;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -296,6 +241,11 @@
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
+            // messageBindingSource
+            // 
+            this.messageBindingSource.DataMember = "message";
+            this.messageBindingSource.DataSource = this.chamiloDataSet;
+            // 
             // userMessageTableAdapter
             // 
             this.userMessageTableAdapter.ClearBeforeFill = true;
@@ -321,34 +271,97 @@
             // 
             this.messageTableAdapter.ClearBeforeFill = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtIdMensaje);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtIdUsuario);
+            this.groupBox1.Controls.Add(this.txtLastName);
+            this.groupBox1.Controls.Add(this.txtFirstName);
+            this.groupBox1.Location = new System.Drawing.Point(31, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(413, 62);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "ALUMNO";
+            // 
+            // txtIdMensaje
+            // 
+            this.txtIdMensaje.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userMessageBindingSource, "id", true));
+            this.txtIdMensaje.Location = new System.Drawing.Point(400, 31);
+            this.txtIdMensaje.Name = "txtIdMensaje";
+            this.txtIdMensaje.Size = new System.Drawing.Size(112, 20);
+            this.txtIdMensaje.TabIndex = 27;
+            this.txtIdMensaje.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(230, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Apellido";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(77, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Nombre";
+            // 
+            // txtIdUsuario
+            // 
+            this.txtIdUsuario.Location = new System.Drawing.Point(10, 31);
+            this.txtIdUsuario.Name = "txtIdUsuario";
+            this.txtIdUsuario.ReadOnly = true;
+            this.txtIdUsuario.Size = new System.Drawing.Size(54, 20);
+            this.txtIdUsuario.TabIndex = 24;
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.Location = new System.Drawing.Point(233, 31);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.ReadOnly = true;
+            this.txtLastName.Size = new System.Drawing.Size(155, 20);
+            this.txtLastName.TabIndex = 23;
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Location = new System.Drawing.Point(80, 31);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.ReadOnly = true;
+            this.txtFirstName.Size = new System.Drawing.Size(137, 20);
+            this.txtFirstName.TabIndex = 22;
+            // 
             // frmMensajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 787);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtNuevaFecha);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtFecha);
-            this.Controls.Add(this.txtIdMensaje);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtIdUsuario);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.userMessageDataGridView);
             this.Name = "frmMensajes";
             this.Text = "Mensajes";
             this.Load += new System.EventHandler(this.frmMensajes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userMessageDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.messageBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userMessageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chamiloDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.messageBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,11 +374,6 @@
         private chamiloDataSetTableAdapters.UserMessageTableAdapter userMessageTableAdapter;
         private chamiloDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView userMessageDataGridView;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtIdUsuario;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.Label label4;
@@ -381,10 +389,16 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.BindingSource messageBindingSource;
         private chamiloDataSetTableAdapters.messageTableAdapter messageTableAdapter;
-        private System.Windows.Forms.TextBox txtIdMensaje;
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNuevaFecha;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtIdMensaje;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.TextBox txtFirstName;
     }
 }
