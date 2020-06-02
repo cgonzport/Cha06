@@ -61,17 +61,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3sSQbEdQTgB/Cct8SLyaJPlUNXzr+dmcUeU6IXLLzDw=</dsig:DigestValue>
+        <dsig:DigestValue>lkNEtz78zv2qwllaluWNHyN6RL+9Z5g09GOh2B42NLM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="WFChamilo6.exe.config" size="602">
+  <file name="WFChamilo6.exe.config" size="579">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>MOfQs+xuX6sz0zGXT5z3SnPdWnfUfFJbhDQ3UWOFVho=</dsig:DigestValue>
+      <dsig:DigestValue>60wsgpCUtwxJ+ry96rnAmdpGfCdTb8W6f+/UzMqzjBo=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
