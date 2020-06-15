@@ -65,13 +65,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="WFChamilo6.exe.config" size="579">
+  <file name="WFChamilo6.exe.config" size="578">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>60wsgpCUtwxJ+ry96rnAmdpGfCdTb8W6f+/UzMqzjBo=</dsig:DigestValue>
+      <dsig:DigestValue>+VS+iMM7YUaH32kcnhLtotGV3AkU0LN5WQnU52/jIX0=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
